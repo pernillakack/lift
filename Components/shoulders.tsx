@@ -1,5 +1,4 @@
-import { stringify } from "querystring";
-import { MouseEvent, useState } from "react";
+
 
 
 function Shoulders() {
@@ -9,7 +8,17 @@ function Shoulders() {
 
    return (
     <>
-    <form>
+<div className=" justify-center items-center h-screen ">
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+    <form className="px-14">
     <ul className="exercises">
       <select name ="axlar">
         <option className="">Axlar</option>
@@ -24,6 +33,7 @@ function Shoulders() {
       </ul>
     </form>
     
+    </div>
     
     </>
 )
