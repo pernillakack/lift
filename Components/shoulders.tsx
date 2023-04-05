@@ -1,10 +1,9 @@
-
-
+import { useState } from "react";
 
 function Shoulders() {
    const shoulders = ["Overhead dumbbell press","Overhead barbell press","Face pull","Dumbbell rear delt row","Lateral dumbbell raises","Shrugs"]
    
-   
+   const [choices, setChoices] = useState<string[]>([""])
 
    return (
     <>
@@ -18,20 +17,26 @@ function Shoulders() {
   <br />
   <br />
   <br />
-    <form className="px-14">
+    <div className="px-14">
     <ul className="exercises">
       <select name ="axlar">
         <option className="">Axlar</option>
       {shoulders.map(shoulders =>
-        <option className=" list-item active" key={shoulders} onClick={() =>console.log(shoulders)}>{shoulders}</option>)}  
-      </select>
-      <br />
-      <select name ="ben">
-        <option value="Ben">Ben</option>
-      
-      </select>
+        <option className=" list-item active" key={shoulders.length} onClick={() =>setChoices([shoulders])}>{shoulders}</option>)}  
+      </select>                                           
+                
       </ul>
-    </form>
+    </div>
+    <h2>Valda övningar:</h2>
+    <div>
+      <ul>
+        {choices.map(choices=>
+        <li className=" list-item active" key={choices} onChange={()=>([choices])}>{choices}</li>)}
+        
+        
+      </ul>
+     
+    </div>
     
     </div>
     
