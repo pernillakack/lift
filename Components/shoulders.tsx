@@ -7,7 +7,7 @@ function Shoulders() {
 
    return (
     <>
-<div className=" justify-center items-center h-screen ">
+<div className=" flex-col justify-center items-center">
   <br />
   <br />
   <br />
@@ -17,7 +17,7 @@ function Shoulders() {
   <br />
   <br />
   <br />
-    <div className="px-14">
+    <div className=" flex-col items-center space-y-4">
     <ul className="exercises">
       <select name ="axlar">
         <option className="">Axlar</option>
@@ -26,8 +26,8 @@ function Shoulders() {
       </select>                                           
                 
       </ul>
-    </div>
-    <h2>Valda övningar:</h2>
+    
+    <h2 className="">Valda övningar:</h2>
     <div>
       <ul>
         {choices.map(choices=>
@@ -37,7 +37,7 @@ function Shoulders() {
       </ul>
      
     </div>
-    
+    </div>
     </div>
     
     </>
