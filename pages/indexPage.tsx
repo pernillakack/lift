@@ -1,13 +1,11 @@
 import Link from "next/link";
 
-function IndexPage () {
+function IndexPage() {
     return (
         <>
-        <button>
-            <Link href ="/">
-               <>Till övningar</> 
-            </Link>
-        </button>
+        <Link href ="/">
+        <>Till övningar</> 
+        </Link>
         </>
     )
 }
