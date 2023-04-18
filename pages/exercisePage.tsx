@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-function IndexPage() {
+function ExercisePage() {
     return (
         <>
-        <Link href ="/">
+        <Link href ="/exercises">
         <>Till övningar</> 
         </Link>
         </>
     )
 }
 
-export default IndexPage
+export default ExercisePage

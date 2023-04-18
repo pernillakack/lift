@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
-import Shoulders from '@/Components/shoulders'
-import Legs from '@/Components/legs'
+import ExercisePage from './exercisePage'
+
 
 
 interface Props {}
@@ -13,17 +13,15 @@ const Index: NextPage<Props> = ({}) => {
     backgroundImage:
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}>
-    <div className=' flex items-center justify-center'>
-      <Shoulders />
-    {/*<button className=' flex absolute '>Gå vidare</button>*/}
+    <div className=' flex justify-center'>
+      <ExercisePage />
     </div>
-    
     </div>
     
 </div>
+
+  
   )
 }
-
-
 
 export default Index

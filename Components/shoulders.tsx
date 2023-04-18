@@ -1,5 +1,4 @@
 import { ChangeEvent, useEffect, useState } from "react";
-import Legs from "./legs";
 import Link from "next/link";
 
 
