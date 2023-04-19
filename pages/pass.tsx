@@ -2,6 +2,7 @@ import DittPass from '@/Components/dittPass'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { TiPlus } from 'react-icons/ti'
+import { useState } from 'react'
 
 interface Props {}
 
@@ -9,7 +10,7 @@ const Pass: NextPage<Props> = ({}) => {
   return (
   <div className=" h-screen flex justify-center ">
     <div id='card' className='flex justify-between px-4 py-4 absolute h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
-    <div id='info' className='flex flex-col'>Overhead dumbbell press
+    <div id='info' className='flex flex-col'>Overhead dumbbell press 
     <div id='muskelgrupp' className=' w-24 h-4 not-italic font-normal text-xs leading-4'>Axlar</div>
   </div>
   <div id='container plus' className='flex my-4 ml-1 mr-2' >
