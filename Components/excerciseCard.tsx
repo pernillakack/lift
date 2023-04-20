@@ -1,42 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { TiPlus } from 'react-icons/ti'
+import MyContextProvider, {MyContext} from '@/context/my-context-provider';
+import { chosenExercise } from '@/functions/chosenEx';
+
+
 
 const ExerciseCard = () => {
+
   const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
+  const exerciseContext = useContext(MyContext);
 
   const handleExercise = (element: { id: number; exercise: string; muscleGroup: string; }) => {
     // Spara det valda objektet i en Array och färga bakgrunden grön
     const newExercise = `${element.exercise} ${element.muscleGroup}`;
     setSelectedExercise(prevState => [...prevState, newExercise]);
+
+// Sätt övningens värden i ExerciseContext
+
+exerciseContext.setExercise(element.exercise);
+exerciseContext.setMuscleGroup(element.muscleGroup);
+
+
+
   }
 
-  const exercises = [
-    {
-      id: 0,
-      "exercise": "Overhead dumbell press",
-      "muscleGroup": "Axlar"
-    },
-    {
-      id: 1,
-      "exercise": "Face pull",
-      "muscleGroup": "Axlar"
-    },
-    {
-      id: 2,
-      "exercise": "Leg curl",
-      "muscleGroup": "Ben"
-    },
-    {
-      id: 3,
-      "exercise": "Front squat",
-      "muscleGroup": "Ben"
-    },
-    {
-      id: 4,
-      "exercise": "Cable curl",
-      "muscleGroup": "Biceps"
-    }
-  ]
+  const exercises = chosenExercise()
 
   const listExercises = exercises.map(
     (element) => (
@@ -59,10 +47,6 @@ const ExerciseCard = () => {
         <h1>ÖVNINGARNA</h1>
         <ul>
           {listExercises}
-        </ul>
-        <h1>VALDA ÖVNINGAR</h1>
-        <ul>
-          {selectedExercise.map((exercise, index) => <li key={index}>{exercise}</li>)}
         </ul>
       </div>
     </>

@@ -1,5 +1,7 @@
 import { NextPage } from 'next'
 import ExerciseCard from '@/Components/excerciseCard'
+import Set_repsPage from './set_repsPage'
+
 
 
 interface Props {}
@@ -11,8 +13,14 @@ const Excercises: NextPage<Props> = ({}) => {
         
         <ExerciseCard />
         </div>
-      
-    </div>
+      <div>
+ 
+<Set_repsPage/>
+    
+</div>
+</div>
+    
+  
   )
 }
 
