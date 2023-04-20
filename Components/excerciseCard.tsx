@@ -56,7 +56,7 @@ const ExerciseCard = () => {
   return (
     <>
       <div>
-        <h1>ÖVNINGAR</h1>
+        <h1>ÖVNINGARNA</h1>
         <ul>
           {listExercises}
         </ul>
