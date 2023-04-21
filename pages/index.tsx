@@ -3,6 +3,7 @@ import ExercisePage from './exercisePage'
 
 
 
+
 interface Props {}
 
 const Index: NextPage<Props> = ({}) => {
@@ -13,7 +14,8 @@ const Index: NextPage<Props> = ({}) => {
     backgroundImage:
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}>
-    <div className=' flex justify-center'><img src={"Ellipse1.png"} alt="bild" />
+    <div className=' flex justify-center'>
+    
       <ExercisePage />
     </div>
     </div>

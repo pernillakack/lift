@@ -3,7 +3,8 @@ import MyContextProvider from '@/context/my-context-provider'
 import { MyContext } from '@/context/my-context-provider'
 import { useContext } from 'react'
 import ExerciseCard from '@/Components/excerciseCard'
-
+import Link from 'next/link'
+import MinaPass from './minaPass'
 
 
 
@@ -14,11 +15,13 @@ const Set_reps: NextPage<Props> = ({}) => {
 
   const { exercise, muscleGroup, reps, sets } = useContext(MyContext);
   
+  
 
   return (
   
-  
+     
   <div>
+    
     <div className='h-screen flex justify-center'>
     <div id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
         <div id='container'>
@@ -41,6 +44,15 @@ const Set_reps: NextPage<Props> = ({}) => {
         </div>
         </div>
     </div>
+    <Link href ="/minaPass">
+        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
+        
+      <button className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
+        Skapa pass {">"}
+</button>
+</div>
+        <></> 
+        </Link>
   </div>
   )
 }
