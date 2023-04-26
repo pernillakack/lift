@@ -30,11 +30,11 @@ exerciseContext.setMuscleGroup(element.muscleGroup);
     (element) => (
       <li key={`${element.id}`}>
         <div onClick={() => handleExercise(element)} id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px] m-8'>
-          <div id='info' className='flex flex-col'>{`${element.exercise}`}
+          <div id='info' className='flex flex-col'>{`${element.exercise}`} br
             <div id='muskelgrupp' className=' py-2 w-24 h-4 not-italic font-normal text-xs leading-4'>{`${element.muscleGroup}`}</div>
           </div>
           <div id='container plus' className='flex my-4 ml-1 mr-2'>
-            <div><TiPlus className='mb-8 w-[18px] h-[18px] top-[33px] left[297px]' /></div>
+            <div><TiPlus className=' mb-8 w-[18px] h-[18px] top-[33px] left[297px]' /></div>
           </div>
         </div>
       </li>

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import MyContextProvider from '@/context/my-context-provider'
 import { MyContext } from '@/context/my-context-provider'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ExerciseCard from '@/Components/excerciseCard'
 import Link from 'next/link'
 import MinaPass from './minaPass'
@@ -13,15 +13,31 @@ interface Props {}
 
 const Set_reps: NextPage<Props> = ({}) => {
 
-  const { exercise, muscleGroup, reps, sets , setReps, setSets} = useContext(MyContext);
+  const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
+  const workoutContext = useContext(MyContext)
+
+  const { exercise, muscleGroup, reps, sets , name, setReps, setSets, setName} = useContext(MyContext);
+
+
+  const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number; name:string}) => {
+    //spara exercise, muscleGroup, reps, sets och name
+  const newWorkout = `${element.exercise} ${element.musclegroup} ${element.reps} ${element.sets} ${element.name}`;
   
-  //const SaveWorkout = () => {
-
-  const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number}) => {
-    //spara exercise, muscleGroup, reps, sets
-
+  
+ setSelectedWorkout(prevState => [...prevState, newWorkout]);
+ console.log(newWorkout)
   }
 
+
+function myWorkout () {
+ 
+
+}
+
+
+  function setInput(value: string) {
+    throw new Error('Function not implemented.')
+  }
 
   return (
   
@@ -30,7 +46,13 @@ const Set_reps: NextPage<Props> = ({}) => {
     
     <div className='h-screen block '>
       <form className=' flex justify-center'>
-      <input type="text" name='' required placeholder='Namnge ditt pass här...' className=' flex w-50 h-6 text-center m-4'></input>
+      <input 
+      type="text" 
+    onChange={(input) => {
+      setInput(input.target.value)
+     // setName({name: input.target.value})
+    }}
+      value={name} required placeholder='Namnge ditt pass här...' className=' flex w-50 h-6 text-center m-4' ></input>
       </form> 
       <div className='flex m-4'>
     <div id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
@@ -58,7 +80,10 @@ const Set_reps: NextPage<Props> = ({}) => {
     <Link href ="/minaPass">
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
         
-      <button  className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
+      <button 
+      type='submit'
+    
+        className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
         Skapa pass {">"}
 </button>
 </div>

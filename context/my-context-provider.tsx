@@ -2,7 +2,7 @@
 
 
 import { NextPage } from 'next'
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useDebugValue, useState } from 'react'
 
 interface UserProviderProps {
     children: ReactNode
@@ -10,6 +10,8 @@ interface UserProviderProps {
 
 // Properties
 interface ExerciseContextProps{
+    id: number
+    name: string
     exercise: string;
     muscleGroup: string
     sets: number;
@@ -20,6 +22,8 @@ interface ExerciseContextProps{
     setSets: (sets: number) => void
     setReps: (reps: number) => void
     setWeight: (weight: number) => void
+    setName: string
+    setId: number
     
 }
 
@@ -29,11 +33,15 @@ const initialExerciseContext: ExerciseContextProps = {
     sets: 0,
     reps: 0,
     weight: 0,
-    setExercise: () => {},
-    setMuscleGroup: () => {},
-    setSets: () => {},
-    setReps: () => {},
-    setWeight: () => {}
+    setExercise: () => { },
+    setMuscleGroup: () => { },
+    setSets: () => { },
+    setReps: () => { },
+    setWeight: () => { },
+    name: '',
+    setName: '',
+    id: 0,
+    setId: 0
 }
 export const MyContext = createContext<ExerciseContextProps>(initialExerciseContext)
 
@@ -45,7 +53,9 @@ const MyContextProvider: React.FC<UserProviderProps> = ({children}) => {
     const [sets, setSets] = useState<number>(0)
     const [reps, setReps] = useState<number>(0)
     const [weight, setWeight] = useState<number>(0)
-
+    const [id, setId]  = useState<number>(0)
+    const [name, setName] = useState<string>("")
+    
     //Connect
     const contextValue: ExerciseContextProps = {
         exercise,
@@ -53,11 +63,15 @@ const MyContextProvider: React.FC<UserProviderProps> = ({children}) => {
         sets,
         reps,
         weight,
-        setExercise: (exercise: string)=> setExercise(exercise),
-        setMuscleGroup: (muscleGroup: string)=> setMuscleGroup(muscleGroup),
-        setSets: (sets: number)=> setSets(sets),
-        setReps: (reps: number)=> setReps(reps),
-        setWeight: (weight: number)=> setWeight(weight)
+        setExercise: (exercise: string) => setExercise(exercise),
+        setMuscleGroup: (muscleGroup: string) => setMuscleGroup(muscleGroup),
+        setSets: (sets: number) => setSets(sets),
+        setReps: (reps: number) => setReps(reps),
+        setWeight: (weight: number) => setWeight(weight),
+        name: '',
+        setName: '',
+        id: 0,
+        setId: 0
     }
 
   return <MyContext.Provider value= {contextValue}
