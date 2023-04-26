@@ -1,42 +1,35 @@
 import { NextApiRequest, NextApiResponse } from "next" 
 import { connectToDatabase } from "@/utils/db"
-import { Exercises } from "@/types/exercises"
-
-
-
+import { Workout } from "@/types/exercises"
 
 export default async function handler(
 req: NextApiRequest,
-res: NextApiResponse <Exercises | Exercises[] | string>
+res: NextApiResponse <Workout | Workout[] | string | number>
 ){ 
-    
-    
-    
-    
- 
     
     try {
 const db = await connectToDatabase()
 
-
 switch (req.method) { case "GET": {
-// Get all excercises from the database
+// Get all workout from the database
 
-const exercises = await db.collection("excercises").find().toArray()
+const workout = await db.collection("workout").find().toArray()
 
-const convertedExercises: Exercises[] = exercises.map((userDoc) => { 
+const convertedWorkout: Workout[] = workout.map((userDoc) => { 
     
     return {
 exercise: userDoc.exercise as string,
 muscle: userDoc.muscle as string, 
+sets: userDoc.sets as number,
+reps: userDoc.reps as number
  
 
 
 } })
-if (convertedExercises.length === 0) { console.log("Finns inga övningar") 
+if (convertedWorkout.length === 0) { console.log("Finns inga övningar") 
 res.status(200).json("Tom")
-} else { res.status(200).json(convertedExercises)
-    console.log(exercises)
+} else { res.status(200).json(convertedWorkout)
+    console.log(workout)
 }
 break
 }

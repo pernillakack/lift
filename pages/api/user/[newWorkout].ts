@@ -1,16 +1,16 @@
 import { connectToDatabase } from "@/utils/db"
 import type { NextApiRequest, NextApiResponse } from "next"
-import { Exercises } from "@/types/exercises"
+import { Workout } from "@/types/exercises"
 
 
 export default async function handler(
  req: NextApiRequest,
- res: NextApiResponse<Exercises | string>
+ res: NextApiResponse<Workout | string | number>
 ){
-const newExercise = req.body // FOR BODY // const { newExercise } = req.query // FOR QUERY
+const newWorkout = req.body // FOR BODY // const { newExercise } = req.query // FOR QUERY
 
- if (!newExercise) {
-   res.status(400).json("New exercise is not defined")
+ if (!newWorkout) {
+   res.status(400).json("New workout is not defined")
    return
  }
 }                                                                                             
