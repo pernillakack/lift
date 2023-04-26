@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import ExercisePage from './exercisePage'
-
+import Knappar from '@/Components/knappar'
 
 
 
@@ -16,7 +16,7 @@ const Index: NextPage<Props> = ({}) => {
    maxWidth:700}}>
     <div className=' flex justify-center'>
     
-      <ExercisePage />
+      <ExercisePage></ExercisePage>
     </div>
     </div>
     

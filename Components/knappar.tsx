@@ -12,4 +12,4 @@ function Knappar (){
 
 
 
-
+export default Knappar

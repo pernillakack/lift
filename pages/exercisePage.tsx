@@ -14,8 +14,12 @@ function ExercisePage() {
     {*/}
 
         <Link href ="/exercises">
-        <div className=" red ">Skapa pass</div>
+        <div className="fixed bottom-25 left-1/2 transform -translate-x-1/2">
         
+      <button  className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
+        Skapa pass {">"}
+</button>
+</div>
         </Link>
         
         </>
