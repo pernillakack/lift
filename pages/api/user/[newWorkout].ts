@@ -1,6 +1,6 @@
 import { connectToDatabase } from "@/utils/db"
 import type { NextApiRequest, NextApiResponse } from "next"
-import { Workout } from "@/types/exercises"
+import { Workout } from "@/types/workout"
 
 
 export default async function handler(

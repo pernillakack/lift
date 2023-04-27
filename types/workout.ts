@@ -1,9 +1,10 @@
 export type Workout = {
-    
-muscle: string
+_id: string    
+musclegroup: string
 exercise: string
 sets: number
 reps: number
+weight: number
  
    }
                     
