@@ -13,14 +13,17 @@ const db = await connectToDatabase()
 switch (req.method) { 
     case "GET": {
     // Get all workouts from the database
-    const workout = await db.collection("myworkout").find().toArray()
+    const workout = await db.collection("myworkout").find().maxTimeMS(10000).toArray()
     const convertedWorkout: Workout[] = workout.map((userDoc) => { 
     
     return {
     exercise: userDoc.exercise as string,
-    muscle: userDoc.muscle as string, 
+    musclegroup: userDoc.muscle as string, 
     sets: userDoc.sets as number,
-    reps: userDoc.reps as number
+    reps: userDoc.reps as number,
+    weight: userDoc.weight as number,
+    name: userDoc.name as string,
+    _id: userDoc.id as string,
     } 
     })
     if (convertedWorkout.length === 0) { console.log("Finns inga övningar") 

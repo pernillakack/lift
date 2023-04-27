@@ -5,6 +5,7 @@ exercise: string
 sets: number
 reps: number
 weight: number
+name: string
  
    }
                     

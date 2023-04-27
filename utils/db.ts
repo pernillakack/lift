@@ -8,7 +8,7 @@ throw new Error("No MongoDB URI specified" )
 const uri = process.env.MONGODB_URI
 
 
-let cachedClient : MongoClient | null = null
+let cachedClient :  | null = null
  
 let cachedDb: Db | null = null
 
@@ -26,7 +26,7 @@ const client = await MongoClient.connect(uri, options)
 const db = client.db()
 
 cachedDb = db
-console.log("CONNECTED TO DATABASE" )
+console.log("CONNECTED TO DATABASE")
 
 return db
 } catch (err) {

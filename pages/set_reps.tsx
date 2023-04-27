@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import MyContextProvider from '@/context/my-context-provider'
 import { MyContext } from '@/context/my-context-provider'
-import { useContext, useState } from 'react'
+import { MouseEventHandler, useContext, useState } from 'react'
 import ExerciseCard from '@/Components/excerciseCard'
 import Link from 'next/link'
 import MinaPass from './minaPass'
@@ -29,10 +29,7 @@ const Set_reps: NextPage<Props> = ({}) => {
   }
 
 
-function myWorkout () {
- 
 
-}
 
 
   function setInput(value: string) {
@@ -48,11 +45,9 @@ function myWorkout () {
       <form className=' flex justify-center'>
       <input 
       type="text" 
-    onChange={(input) => {
-      setInput(input.target.value)
-     // setName({name: input.target.value})
-    }}
-      value={name} required placeholder='Namnge ditt pass här...' className=' flex w-50 h-6 text-center m-4' ></input>
+   
+      value={name} required placeholder='Namnge ditt pass här...' 
+      className=' flex w-50 h-6 text-center m-4'  ></input>
       </form> 
       <div className='flex m-4'>
     <div id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
@@ -81,7 +76,7 @@ function myWorkout () {
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
         
       <button 
-      type='submit'
+     
     
         className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
         Skapa pass {">"}
