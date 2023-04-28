@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next" 
 import { connectToDatabase } from "@/utils/db"
 import { Workout } from "@/types/workout"
+import { WorkoutModel } from "@/schemas/workoutSchema"
 
 export default async function handler(
 req: NextApiRequest,
@@ -13,7 +14,7 @@ const db = await connectToDatabase()
 switch (req.method) { 
     case "GET": {
     // Get all workouts from the database
-    const workout = await db.collection("myworkout").find().maxTimeMS(10000).toArray()
+    const workout = await WorkoutModel.find().lean().exec()
     const convertedWorkout: Workout[] = workout.map((userDoc) => { 
     
     return {

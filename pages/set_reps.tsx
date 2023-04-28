@@ -46,7 +46,7 @@ const Set_reps: NextPage<Props> = ({}) => {
       <input 
       type="text" 
    
-      value={name} required placeholder='Namnge ditt pass här...' 
+       required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-6 text-center m-4'  ></input>
       </form> 
       <div className='flex m-4'>

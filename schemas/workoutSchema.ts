@@ -34,9 +34,12 @@ const workoutSchema = new Schema<Workout>(
     },
     {versionKey: false}
 )
-workoutSchema.methods.fullName = function () {
-    //vad betyder nedan?
-    return `${this.name.first} ${this.name.last}`
+workoutSchema.methods.workoutName = function () {
+    //detta är en metod, kan göra flera utifrån behov
+    return `${this.name}`
+}
+workoutSchema.methods.timeForWorkout = function () {
+    return `${this.exercise.first} ${this.musclegroup}`
 }
 
 export const WorkoutModel =
