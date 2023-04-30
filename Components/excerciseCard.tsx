@@ -4,24 +4,25 @@ import MyContextProvider, {MyContext} from '@/context/my-context-provider';
 import { chosenExercise } from '@/functions/chosenEx';
 
 
-
 const ExerciseCard = () => {
 
   const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
   const exerciseContext = useContext(MyContext);
 
+  const [isColored, setIsColored] = useState<{[key: string]: boolean}>({});
+
   const handleExercise = (element: { id: number; exercise: string; muscleGroup: string; }) => {
-    // Spara det valda objektet i en Array och färga bakgrunden grön
+    // Spara det valda objektet i en Array
     const newExercise = `${element.exercise} ${element.muscleGroup}`;
     setSelectedExercise(prevState => [...prevState, newExercise]);
-
-// Sätt övningens värden i ExerciseContext
-
-exerciseContext.setExercise(element.exercise);
-exerciseContext.setMuscleGroup(element.muscleGroup);
-
-
-
+    //färga det valda kortets bakgrund grön
+    setIsColored((prevState) => ({
+      ...prevState,
+    [element.id]: !prevState[element.id]}))
+    
+    // Sätt övningens värden i ExerciseContext
+    exerciseContext.setExercise(element.exercise);
+    exerciseContext.setMuscleGroup(element.muscleGroup);
   }
 
   const exercises = chosenExercise()
@@ -30,7 +31,7 @@ exerciseContext.setMuscleGroup(element.muscleGroup);
     (element) => (
       <div className=' m-4'>
       <li key={`${element.id}`}>
-        <div onClick={() => handleExercise(element)} id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]'>
+        <div onClick={() => handleExercise(element)} id='card' className={`flex justify-between px-4 py-4 h-20 ${isColored[element.id] ?"bg-[#E1FFDE]" : "bg-white"} rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]`}>
           <div id='info' className='block'>{`${element.exercise}`}
             <div id='muskelgrupp' className=' py-2 w-24 h-4 not-italic font-normal text-xs leading-4'>{`${element.muscleGroup}`}</div>
           </div>

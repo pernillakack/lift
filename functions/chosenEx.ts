@@ -18,11 +18,6 @@ export function chosenExercise() {
           "muscleGroup": "Axlar"
         },
         {
-          id: 3,
-          "exercise": "Face pull",
-          "muscleGroup": "Axlar"
-        },
-        {
           id: 4,
           "exercise": "Dumbell rear delt row",
           "muscleGroup": "Axlar"
