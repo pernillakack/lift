@@ -63,6 +63,7 @@ import { MongoClient } from "mongodb";
 
 import { InferGetStaticPropsType } from "next";
 import { ObjectId } from "mongodb";
+import Button from '@/Components/button';
 
 export type Workout = {
     musclegroup: string;
@@ -118,10 +119,11 @@ return (
         <div key={workout._id}>
             <h1>Mina Pass</h1>
             <br />
-            <p>{workout.name}</p>
+            <Button text={workout.name}></Button>
+          {/*  <p>{workout.name}</p>
             <p>{workout.musclegroup}</p>
             <p>Sets:{workout.sets}</p>
-            <p>Reps:{workout.reps}</p>
+            <p>Reps:{workout.reps}</p>*/}
             
 
 

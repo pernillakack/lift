@@ -5,6 +5,7 @@ import { MouseEventHandler, useContext, useState } from 'react'
 import ExerciseCard from '@/Components/excerciseCard'
 import Link from 'next/link'
 import MinaPass from './minaPass'
+import Button from '@/Components/button'
 
 //TODO : skapa ett onClick på knappen
 
@@ -28,25 +29,18 @@ const Set_reps: NextPage<Props> = ({}) => {
  console.log(newWorkout)
   }
 
-
-
-
-
   function setInput(value: string) {
     throw new Error('Function not implemented.')
   }
 
   return (
-  
-     
   <div>
     
     <div className='h-screen block '>
       <form className=' flex justify-center'>
       <input 
-      type="text" 
-   
-       required placeholder='Namnge ditt pass här...' 
+      type="text"  
+      required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-6 text-center m-4'  ></input>
       </form> 
       <div className='flex m-4'>
@@ -74,16 +68,9 @@ const Set_reps: NextPage<Props> = ({}) => {
     </div>
     <Link href ="/minaPass">
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-        
-      <button 
-     
-    
-        className=" text-[color:white] text-x+l bg-red-500 text-white font-bold py-2 px-8 rounded">
-        Skapa pass {">"}
-</button>
-</div>
-        <></> 
-        </Link>
+      <Button text="Skapa pass >"/>
+        </div>
+    </Link>
  
   </div>
   )
