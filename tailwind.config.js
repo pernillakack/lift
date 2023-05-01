@@ -9,11 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    backgroundColor: {
+    'red' : '#DD0000',
+    'green' : '#E1FFDE',
+    'white' : '#FFFFFF'
+    },
     textColor: theme =>('colors'),
   textColor: {
-   'primary': '#5A5A5A'
-   
-  },
+   'primary': '#5A5A5A'},
+  
    extend: {
      
    },
