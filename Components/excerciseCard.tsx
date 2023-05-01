@@ -31,7 +31,7 @@ const ExerciseCard = () => {
     (element) => (
       <div className=' m-4'>
       <li key={`${element.id}`}>
-        <div onClick={() => handleExercise(element)} id='card' className={`flex justify-between px-4 py-4 h-20 ${isColored[element.id] ?"bg-green" : "bg-white"} rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]`}>
+        <div onClick={() => handleExercise(element)} id='card' className={`flex justify-between px-4 py-4 h-20 ${isColored[element.id] ?" bg-ourGreen" : " bg-ourWhite"} rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]`}>
           <div id='info' className='block'>{`${element.exercise}`}
             <div id='muskelgrupp' className=' py-2 w-24 h-4 not-italic font-normal text-xs leading-4'>{`${element.muscleGroup}`}</div>
           </div>

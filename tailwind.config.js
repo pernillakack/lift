@@ -10,9 +10,9 @@ module.exports = {
   ],
   theme: {
     backgroundColor: {
-    'red' : '#DD0000',
-    'green' : '#E1FFDE',
-    'white' : '#FFFFFF'
+    'ourRed' : '#DD0000',
+    'ourGreen' : '#E1FFDE',
+    'ourWhite' : '#FFFFFF'
     },
     textColor: theme =>('colors'),
   textColor: {
