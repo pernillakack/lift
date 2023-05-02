@@ -64,18 +64,7 @@ import { MongoClient } from "mongodb";
 import { InferGetStaticPropsType } from "next";
 import { ObjectId } from "mongodb";
 import Button from '@/Components/button';
-
-export type Workout = {
-    musclegroup: string;
-    _id: number;
-    weight: number;
-    name: string; 
-    exercise: string;
-    reps: number;
-    sets: number
-    };
-
-   
+import { Workout } from '@/types/workout';
     
 export const getStaticProps: GetStaticProps = async (context) => {
         const mongoClient = new MongoClient(
@@ -115,10 +104,11 @@ return (
      <br /> <br />
       {workouts.map((workout: Workout) => {
      return (
-        
+      <div>
+      <h1>Mina Pass</h1>
         <div key={workout._id}>
-            <h1>Mina Pass</h1>
-            <br />
+            
+            
             <Button text={workout.name}></Button>
           {/*  <p>{workout.name}</p>
             <p>{workout.musclegroup}</p>
@@ -128,12 +118,13 @@ return (
 
 
         </div>
-        
+        </div>
         );
    
 })}
 </div>
  </div>
+
 </>
 
 );
