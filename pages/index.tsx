@@ -6,6 +6,10 @@ import Button from '@/Components/button'
 
 interface Props {}
 
+const onClick =()=> {
+  console.log("")
+}
+
 const Index: NextPage<Props> = ({}) => {
   return (
     <div className=' h-screen flex justify-center'>
@@ -17,8 +21,8 @@ const Index: NextPage<Props> = ({}) => {
     <div className=' flex justify-center'>
     <div className="fixed bottom-25 left-1/2 transform -translate-x-1/2">
       <ExercisePage>
-        <Button text={"Skapa pass >"} ></Button>
-      </ExercisePage>
+        <Button text={"Skapa pass >"} onClick={onClick} ></Button>
+        </ExercisePage>
       </div>
     </div>
     </div>

@@ -15,16 +15,16 @@ switch (req.method) {
     case "GET": {
     // Get all workouts from the database
     const workout = await WorkoutModel.find().lean().exec()
-    const convertedWorkout: Workout[] = workout.map((userDoc) => { 
+    const convertedWorkout: Workout[] = workout.map((workoutDoc) => { 
     
     return {
-    exercise: userDoc.exercise as string,
-    musclegroup: userDoc.muscle as string, 
-    sets: userDoc.sets as number,
-    reps: userDoc.reps as number,
-    weight: userDoc.weight as number,
-    name: userDoc.name as string,
-    _id: userDoc.id as string,
+    exercise: workoutDoc.exercise as string,
+    musclegroup: workoutDoc.muscle as string, 
+    sets: workoutDoc.sets as number,
+    reps: workoutDoc.reps as number,
+    weight: workoutDoc.weight as number,
+    name: workoutDoc.name as string,
+    _id: workoutDoc.id as string,
     } 
     })
     if (convertedWorkout.length === 0) { console.log("Finns inga övningar") 
@@ -36,7 +36,8 @@ switch (req.method) {
     }
     case "POST":
     //create posts with the workout
-
+    const saveWorkout = await WorkoutModel.create()
+    
     default: {
     
 // Return a 405 Method Not Allowed error for all other HTTP methods res.setHeader("Allow", ["GET", "POST"]) res.status(405).end(`Method ${req.method} Not Allowed`)

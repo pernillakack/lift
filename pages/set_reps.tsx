@@ -7,16 +7,13 @@ import Link from 'next/link'
 import MinaPass from './minaPass'
 import Button from '@/Components/button'
 
-//TODO : skapa ett onClick på knappen
-
-
 interface Props {}
 
 const Set_reps: NextPage<Props> = ({}) => {
 
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
-
+// define sets, reps och name
   const { exercise, muscleGroup, reps, sets , name, setReps, setSets, setName} = useContext(MyContext);
 
 
@@ -36,6 +33,8 @@ const Set_reps: NextPage<Props> = ({}) => {
 
 
   const handleChange = () => {
+    // TODO: Lägga till objektet Workout upp till databasen
+  // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
     console.log("Hej")
   }
 

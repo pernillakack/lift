@@ -1,4 +1,4 @@
-import { MongoClient , Db, MongoClientOptions } from "mongodb"
+//import { MongoClient , Db, MongoClientOptions } from "mongodb"
 import mongoose from "mongoose"
 
 if (!process.env.MONGODB_URI) {
@@ -9,14 +9,14 @@ throw new Error("No MongoDB URI specified" )
 const uri = process.env.MONGODB_URI
 
 
-let cachedClient :  | null = null
+//let cachedClient :  | null = null
  
 let cachedDb: typeof mongoose | null = null
 
-const options: MongoClientOptions = { 
+{/*const options: MongoClientOptions = { 
     connectTimeoutMS: 5000, 
     socketTimeoutMS: 5000,
-}
+} */}
 
 export async function connectToDatabase (): Promise<typeof mongoose> { 
     if (cachedDb) {

@@ -35,13 +35,13 @@ const workoutSchema = new Schema<Workout>(
     {versionKey: false}
 )
 workoutSchema.methods.workoutName = function () {
-    //detta är en metod, kan göra flera utifrån behov
-    return `${this.name}`
+    //för att kalla på namnet till "minaPass"
+    return `${this.name} ${this._id}`
 }
 workoutSchema.methods.timeForWorkout = function () {
-    return `${this.exercise.first} ${this.musclegroup}`
+    return `${this.exercise} ${this.musclegroup} ${this._id}`
 }
 
 export const WorkoutModel =
     mongoose.models.WorkoutModel ||
-    mongoose.model<Workout>("WorkoutModel", workoutSchema,"workout")
+    mongoose.model<Workout>("WorkoutModel", workoutSchema,"myworkout")

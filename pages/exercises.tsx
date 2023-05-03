@@ -5,6 +5,10 @@ import Button from '@/Components/button'
 
 interface Props {}
 
+const handleChange = ()=> {
+  console.log("")
+}
+
 const Excercises: NextPage<Props> = ({}) => {
   return (
     <div>
@@ -13,7 +17,7 @@ const Excercises: NextPage<Props> = ({}) => {
       </div>
         <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
           <Set_repsPage>
-            <Button text={"Gå vidare >"}></Button>
+            <Button text={"Gå vidare >"} onClick={handleChange}></Button>
           </Set_repsPage>
         </div>
     </div>
