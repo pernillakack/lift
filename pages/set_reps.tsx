@@ -33,6 +33,12 @@ const Set_reps: NextPage<Props> = ({}) => {
     throw new Error('Function not implemented.')
   }
 
+
+
+  const handleChange = () => {
+    console.log("Hej")
+  }
+
   return (
   <div>
     
@@ -66,11 +72,12 @@ const Set_reps: NextPage<Props> = ({}) => {
         </div>
         </div>
     </div>
-    <Link href ="/minaPass">
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-      <Button text="Skapa pass >"/>
-        </div>
-    </Link>
+    <Link href="/minaPass">
+  <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
+    <Button text="Skapa pass >" onClick={handleChange} />
+  </div>
+</Link>
+
  
   </div>
   )

@@ -106,7 +106,9 @@ return (
      return (
       <ul key={workout._id}>
         <li className='flex justify-between py-2' >  
-            <Button text={workout.name}></Button>
+            <Button text={workout.name} onClick={function (): void {
+             throw new Error('Function not implemented.');
+           } }></Button>
         </li>
       </ul>
     );
