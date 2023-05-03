@@ -100,28 +100,18 @@ return (
     backgroundImage:
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}> 
-  
-     <br /> <br />
+    <div className=''>
+     <h1>Mina Pass:</h1>
       {workouts.map((workout: Workout) => {
      return (
-      <div>
-      <h1>Mina Pass</h1>
-        <div key={workout._id}>
-            
-            
+      <ul key={workout._id}>
+        <li className='flex justify-between py-2' >  
             <Button text={workout.name}></Button>
-          {/*  <p>{workout.name}</p>
-            <p>{workout.musclegroup}</p>
-            <p>Sets:{workout.sets}</p>
-            <p>Reps:{workout.reps}</p>*/}
-            
-
-
-        </div>
-        </div>
-        );
-   
-})}
+        </li>
+      </ul>
+    );
+   })}
+   </div>
 </div>
  </div>
 
