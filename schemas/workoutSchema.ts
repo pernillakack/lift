@@ -42,6 +42,9 @@ workoutSchema.methods.timeForWorkout = function () {
     return `${this.exercise} ${this.musclegroup} ${this._id}`
 }
 
+
+
+
 export const WorkoutModel =
     mongoose.models.WorkoutModel ||
     mongoose.model<Workout>("WorkoutModel", workoutSchema,"myworkout")

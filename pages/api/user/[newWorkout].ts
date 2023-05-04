@@ -10,6 +10,8 @@ export default async function handler(
 ){
 const newWorkout = req.body // FOR BODY // const { newExercise } = req.query // FOR QUERY
 
+console.log(newWorkout);
+
  if (!newWorkout) {
    res.status(400).json("New workout is not defined")
    return

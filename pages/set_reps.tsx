@@ -7,6 +7,8 @@ import Link from 'next/link'
 import MinaPass from './minaPass'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
+import { ChangeEvent } from 'react'
+
 
 interface Props {}
 
@@ -15,11 +17,18 @@ const Set_reps: NextPage<Props> = ({}) => {
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
 // define sets, reps och name
-  const { exercise, muscleGroup, reps, sets , name, setReps, setSets, setName} = useContext(MyContext);
+  const { exercise, muscleGroup,   name,   setName} = useContext(MyContext);
+
+
+  // 
+const [namn, setNamn] = useState("")
+const [reps, setReps] = useState("")
+const [sets, setSets] = useState("")
 
 
   const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number; name:string}) => {
     //spara exercise, muscleGroup, reps, sets och name
+    
   const newWorkout = `${element.exercise} ${element.musclegroup} ${element.reps} ${element.sets} ${element.name}`;
   
   
@@ -33,23 +42,46 @@ const Set_reps: NextPage<Props> = ({}) => {
 
 
 
-  const handleChange = () => {
+  const handleChange = async (e: { preventDefault: () => void }) => {
     // TODO: Lägga till objektet Workout upp till databasen
   // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
-    console.log("Hej")
+  e.preventDefault();
+
+  try {
+const response = await fetch ('api/user', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body:JSON.stringify(saveWorkout),
+});
+
+const data = await response.json();
+console.log(data)
+
+  }catch(error){
+    console.error(error);
+  }
+
+
+
+  
+    console.log(namn, reps, sets, exercise, muscleGroup)
   }
 
   return (
   <div>
     
     <div className='h-screen block '>
-    <TopNav text={undefined}></TopNav>
+   <TopNav text={undefined}></TopNav>
     <br />
       <form className=' py-12 flex justify-center'>
       <input 
-      type="text"  
+      type="text" 
+      id='name'
+      value={namn} 
+      onChange={(e) => setNamn(e.target.value)} 
+      
       required placeholder='Namnge ditt pass här...' 
-      className=' flex w-50 h-6 text-center m-4'  ></input>
+      className=' flex w-50 h-6 text-center m-4'   ></input>
       </form> 
       <div className='flex m-4'>
     <div id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
@@ -62,9 +94,12 @@ const Set_reps: NextPage<Props> = ({}) => {
 
         <div className=''>
         <form id='inputs' className='flex justify-center'>
-        <input type="text" name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
+        <input type="text" value={sets} 
+      onChange={(e) => setSets(e.target.value)}   
+       name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
-            <input type='text' name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
+            <input type='text' value={reps} 
+      onChange={(e) => setReps(e.target.value)}  name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
             <div id='sets' className=' py-2 ml-2 mr-2 not-italic font-normal text-xs'>Sets</div>

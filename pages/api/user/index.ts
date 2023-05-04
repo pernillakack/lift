@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next"
 import { connectToDatabase } from "@/utils/db"
 import { Workout } from "@/types/workout"
 import { WorkoutModel } from "@/schemas/workoutSchema"
+import { useState } from "react"
 
 export default async function handler(
 req: NextApiRequest,
@@ -36,7 +37,13 @@ switch (req.method) {
     }
     case "POST":
     //create posts with the workout
+
+    
+    
+
     const saveWorkout = await WorkoutModel.create()
+
+    
     
     default: {
     
