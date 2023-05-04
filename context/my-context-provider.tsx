@@ -13,12 +13,12 @@ interface ExerciseContextProps{
     id: number
     name: string
     exercise: string;
-    muscleGroup: string
+    musclegroup: string
     sets: number;
     reps: number;
     weight: number;
     setExercise: (exercise: string) => void
-    setMuscleGroup: (muscleGroup: string) => void
+    setMusclegroup: (muscleGroup: string) => void
     setSets: (sets: number) => void
     setReps: (reps: number) => void
     setWeight: (weight: number) => void
@@ -29,12 +29,12 @@ interface ExerciseContextProps{
 
 const initialExerciseContext: ExerciseContextProps = {
     exercise: '',
-    muscleGroup: '',
+    musclegroup: '',
     sets: 0,
     reps: 0,
     weight: 0,
     setExercise: () => { },
-    setMuscleGroup: () => { },
+    setMusclegroup: () => { },
     setSets: () => { },
     setReps: () => { },
     setWeight: () => { },
@@ -49,7 +49,7 @@ const MyContextProvider: React.FC<UserProviderProps> = ({children}) => {
 
     //Finalize
     const [exercise, setExercise] = useState<string>("")
-    const [muscleGroup, setMuscleGroup] = useState<string>("")
+    const [musclegroup, setMusclegroup] = useState<string>("")
     const [sets, setSets] = useState<number>(0)
     const [reps, setReps] = useState<number>(0)
     const [weight, setWeight] = useState<number>(0)
@@ -59,12 +59,12 @@ const MyContextProvider: React.FC<UserProviderProps> = ({children}) => {
     //Connect
     const contextValue: ExerciseContextProps = {
         exercise,
-        muscleGroup,
+        musclegroup,
         sets,
         reps,
         weight,
         setExercise: (exercise: string) => setExercise(exercise),
-        setMuscleGroup: (muscleGroup: string) => setMuscleGroup(muscleGroup),
+        setMusclegroup: (musclegroup: string) => setMusclegroup(musclegroup),
         setSets: (sets: number) => setSets(sets),
         setReps: (reps: number) => setReps(reps),
         setWeight: (weight: number) => setWeight(weight),

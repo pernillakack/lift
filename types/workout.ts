@@ -6,7 +6,7 @@ musclegroup: string
 exercise: string
 sets: number
 reps: number
-weight: number
+weight?: number
 name: string
  
    }

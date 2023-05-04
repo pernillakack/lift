@@ -25,7 +25,7 @@ const workoutSchema = new Schema<Workout>(
         },
         weight: {
             type: Number,
-            required: true
+            
         },
         name: {
             type: String,

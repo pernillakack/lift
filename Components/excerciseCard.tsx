@@ -23,7 +23,7 @@ const ExerciseCard = () => {
     
     // Sätt övningens värden i ExerciseContext
     exerciseContext.setExercise(element.exercise);
-    exerciseContext.setMuscleGroup(element.muscleGroup);
+    exerciseContext.setMusclegroup(element.muscleGroup);
   }
 
   const exercises = chosenExercise()
