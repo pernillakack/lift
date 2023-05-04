@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { TiPlus } from 'react-icons/ti'
 import MyContextProvider, {MyContext} from '@/context/my-context-provider';
 import { chosenExercise } from '@/functions/chosenEx';
+import TopNav from './topNav';
 
 
 const ExerciseCard = () => {
@@ -47,6 +48,7 @@ const ExerciseCard = () => {
   return (
     <>
       <div>
+        <TopNav text={"ÖVNINGAR"}></TopNav>
         <h1>ÖVNINGARNA</h1>
         <ul>
           {listExercises}

@@ -6,6 +6,7 @@ import ExerciseCard from '@/Components/excerciseCard'
 import Link from 'next/link'
 import MinaPass from './minaPass'
 import Button from '@/Components/button'
+import TopNav from '@/Components/topNav'
 
 interface Props {}
 
@@ -42,7 +43,9 @@ const Set_reps: NextPage<Props> = ({}) => {
   <div>
     
     <div className='h-screen block '>
-      <form className=' flex justify-center'>
+    <TopNav text={undefined}></TopNav>
+    <br />
+      <form className=' py-12 flex justify-center'>
       <input 
       type="text"  
       required placeholder='Namnge ditt pass här...' 
