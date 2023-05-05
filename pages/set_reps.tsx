@@ -15,17 +15,6 @@ import {Workout} from '@/types/workout'
 interface Props {}
 
 
-const workout1:Workout={
-
-
-  musclegroup: "",
-exercise: "",
-sets: 0,
-reps: 0,
-weight: 0,
-name: ""
- 
-}
 
 const Set_reps: NextPage<Props> = ({}) => {
 
@@ -41,14 +30,14 @@ const [reps, setReps] = useState("")
 const [sets, setSets] = useState("")
 
 
-  const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number; name:string}) => {
+  const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number; name:string;}) => {
     //spara exercise, musclegroup, reps, sets och name
     
   const newWorkout = `${element.exercise} ${element.musclegroup} ${element.reps} ${element.sets} ${element.name}`;
   
   
  setSelectedWorkout(prevState => [...prevState, newWorkout]);
- console.log(newWorkout)
+ console.log(saveWorkout)
   }
 
   function setInput(value: string) {
@@ -57,23 +46,19 @@ const [sets, setSets] = useState("")
 
 
 
- const handleChange = async ( name: string, exercise:string,
-   reps: number, sets: number, musclegroup:string, workout: Workout, ) => {
+ const handleClick = async () => {
     // TODO: Lägga till objektet Workout upp till databasen
   // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
-  
-  
-
-
+  const saveWorkout = {namn, exercise, sets, reps, musclegroup}
   try {
 const response = await fetch ('api/user', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body:JSON.stringify({...workout,name, exercise, reps, sets, musclegroup,}),
+  body:JSON.stringify({saveWorkout}),
 });
 
 const data = await response.json();
-console.log(data)
+console.log(saveWorkout)
 
   }catch(error){
     console.error(error);
@@ -82,16 +67,9 @@ console.log(data)
 
 
   
-    console.log(namn, reps, sets, exercise, musclegroup)
+    console.log(saveWorkout)
   }
-  const handleClick = () => {
-    const parsedSets = parseInt(sets);
-    const parsedReps = parseInt(reps);
-    handleChange(name, exercise, parsedSets, parsedReps, musclegroup, workout1);
-    console.log(handleChange);
-    
-    
-  };
+ 
 
   return (
   <div>

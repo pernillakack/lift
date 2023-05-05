@@ -36,19 +36,21 @@ switch (req.method) {
     break
     }
     case "POST":
-    //create posts with the workout
 
-    
-    
+    try {
+        const { exercise, musclegroup, reps, sets, name } = req.body;
+        const newWorkout = new WorkoutModel({ exercise, musclegroup, reps, sets, name });
+        const saveWorkout = await newWorkout.save();
+        res.status(201).json(saveWorkout);
+      } catch (error) {
+        throw new Error("Something went wrong " + error);
+      }
 
-    const saveWorkout = await WorkoutModel.create()
 
-    
-    
     default: {
     
 // Return a 405 Method Not Allowed error for all other HTTP methods res.setHeader("Allow", ["GET", "POST"]) res.status(405).end(`Method ${req.method} Not Allowed`)
-res.setHeader("Allow", ["GET", "POST", ])
+res.setHeader("Allow", ["GET", "POST", "PUT", "DELETE"])
 res.status(405).end(`Method ${req.method}Not allowed`)
 break
 } }
