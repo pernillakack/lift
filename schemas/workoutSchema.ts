@@ -6,7 +6,8 @@ const workoutSchema = new Schema<Workout>(
     {
         _id: {
             type: String
-        },
+
+        }, 
         musclegroup: {
             type: String,
             required: true,
@@ -24,7 +25,9 @@ const workoutSchema = new Schema<Workout>(
             required: true
         },
         weight: {
-            type: Number,
+            type: Number, 
+           
+
             
         },
         name: {

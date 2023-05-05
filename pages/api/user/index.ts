@@ -36,6 +36,7 @@ switch (req.method) {
     break
     }
     case "POST":
+        console.log("Inne i index.ts")
 
     try {
         const { exercise, musclegroup, reps, sets, name } = req.body;

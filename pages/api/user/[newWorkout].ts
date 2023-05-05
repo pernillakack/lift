@@ -18,15 +18,32 @@ console.log(newWorkout);
  }
 
  if (req.method === "POST") {
+  console.log("NewWorkout")
   try {
     const saveWorkout: Workout = newWorkout as Workout
+    console.log("saveWorkout",saveWorkout)
+    console.log(saveWorkout._id)
+    console.log(saveWorkout.exercise)
+    console.log(saveWorkout.musclegroup)
+    console.log(saveWorkout.reps)
+    console.log(saveWorkout.sets)
+    console.log(saveWorkout.weight)
+    console.log(saveWorkout.name)
 
+    console.log(Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && key !== "weigth"   && !value))
+    console.log(Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && !value))
     if (
-      Object.entries(saveWorkout).some(([key, value]) => key !== "_id" && !value)
+     
+
+      Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && key !== "weigth"   && !value)
     ) {
+      console.log("Inside if-statement")
       res.status(400).json("Invalid workout data")
+        console.log("NewWorkout")
       return
     }
+
+    console.log("preparing to save")
 
     await connectToDatabase()
     const workoutDoc = new WorkoutModel(saveWorkout)

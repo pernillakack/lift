@@ -8,26 +8,29 @@ import MinaPass from './minaPass'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
 import { ChangeEvent } from 'react'
-import {Workout} from '@/types/workout'
+
+import { ObjectId } from 'mongodb'
+
 
 
 
 interface Props {}
 
 
-
 const Set_reps: NextPage<Props> = ({}) => {
 
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
-// define sets, reps och name
-  const { exercise, musclegroup,   name,   setName} = useContext(MyContext);
+
+  const { exercise, musclegroup,   } = useContext(MyContext);
 
 
-  // 
-const [namn, setNamn] = useState("")
-const [reps, setReps] = useState("")
-const [sets, setSets] = useState("")
+  // define sets, reps , weigth, id och name
+const [name, setName] = useState("")
+const [reps, setReps] = useState(0)
+const [weight, setWeight] = useState(5)
+ const [_id, setId] = useState("90")
+const [sets, setSets] = useState(0)
 
 
   const saveWorkout = (element: {exercise: string; musclegroup: string; reps: number; sets: number; name:string;}) => {
@@ -49,16 +52,19 @@ const [sets, setSets] = useState("")
  const handleClick = async () => {
     // TODO: Lägga till objektet Workout upp till databasen
   // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
-  const saveWorkout = {namn, exercise, sets, reps, musclegroup}
+  const saveWorkout = { _id, musclegroup, sets, reps, exercise, weight,  name,  }
+  // 
   try {
-const response = await fetch ('api/user', {
+    console.log(saveWorkout)
+const response = await fetch ('api/user/newWorkout', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body:JSON.stringify({saveWorkout}),
+  body:JSON.stringify(saveWorkout),
 });
 
 const data = await response.json();
-console.log(saveWorkout)
+// Den här consolge.log läses inte av 
+console.log(" Hallå?")
 
   }catch(error){
     console.error(error);
@@ -66,7 +72,7 @@ console.log(saveWorkout)
 
 
 
-  
+  // Den här läses av
     console.log(saveWorkout)
   }
  
@@ -81,8 +87,8 @@ console.log(saveWorkout)
       <input 
       type="text" 
       id='name'
-      value={namn} 
-      onChange={(e) => setNamn(e.target.value)} 
+      value={name} 
+      onChange={(e) => setName(e.target.value)} 
       
       required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-6 text-center m-4'   ></input>
@@ -99,11 +105,11 @@ console.log(saveWorkout)
         <div className=''>
         <form id='inputs' className='flex justify-center'>
         <input type="text" value={sets} 
-      onChange={(e) => setSets(e.target.value)}   
+      onChange={(e) => setSets(parseInt(e.target.value))}   
        name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
             <input type='text' value={reps} 
-      onChange={(e) => setReps(e.target.value)}  name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
+      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
             <div id='sets' className=' py-2 ml-2 mr-2 not-italic font-normal text-xs'>Sets</div>
