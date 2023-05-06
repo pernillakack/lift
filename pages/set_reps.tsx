@@ -80,10 +80,10 @@ console.log(" Hallå?")
   return (
   <div>
     
-    <div className='h-screen block '>
-   <TopNav text={undefined}></TopNav>
+    <div  className=' uxBackground h-screen block '>
+   <TopNav activeButton={'set_reps'}></TopNav>
     <br />
-      <form className=' py-12 flex justify-center'>
+      <form className=' pt-20 flex justify-center'>
       <input 
       type="text" 
       id='name'
@@ -91,29 +91,29 @@ console.log(" Hallå?")
       onChange={(e) => setName(e.target.value)} 
       
       required placeholder='Namnge ditt pass här...' 
-      className=' flex w-50 h-6 text-center m-4'   ></input>
+      className=' flex w-50 h-7 text-center m-4'   ></input>
       </form> 
-      <div className='flex m-4'>
-    <div id='card' className='flex justify-between px-4 py-4 h-20 bg-white rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
-        <div id='container'>
+      <div className='flex m-4 py-0'>
+    <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
+        <div className=' py-3' id='container'>
 
-            <div id='övning'className='flex'>{`${exercise}`}</div>
+            <div id='övning'className='  flex'>{`${exercise}`}</div>
             <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>
 
         </div>
 
         <div className=''>
-        <form id='inputs' className='flex justify-center'>
+        <form id='inputs' className='flex justify-center py-3'>
         <input type="text" value={sets} 
       onChange={(e) => setSets(parseInt(e.target.value))}   
-       name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
+       name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
             <input type='text' value={reps} 
-      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className=' ml-2 mr-2 w-6 rounded-full box-border border-2 shadow-lg text-center'></input>
+      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
-            <div id='sets' className=' py-2 ml-2 mr-2 not-italic font-normal text-xs'>Sets</div>
-            <div id='reps' className=' py-2 ml-4 mr-2 text-xs'>Reps</div> 
+            <div id='sets' className='  ml-2 mr-2 not-italic font-normal text-xs '>Sets</div>
+            <div id='reps' className=' mt-0  ml-4 mr-2 text-xs  '>Reps</div> 
         </div>
         </div>
         </div>

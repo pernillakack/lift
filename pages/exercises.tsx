@@ -6,22 +6,23 @@ import TopNav from '@/Components/topNav'
 
 interface Props {}
 
-const handleChange = ()=> {
+const handleChange = () => {
   console.log("")
 }
 
 const Excercises: NextPage<Props> = ({}) => {
   return (
-    <div>
-      <div className=" h-screen flex justify-center">
-        <TopNav text={undefined}></TopNav>
-        <ExerciseCard />
+    <div className="uxBackground h-screen flex flex-col" >
+      <TopNav activeButton={'exercises'}></TopNav>
+      <div className=' flex-grow mt-20 overflow-auto'>
+        
+         <ExerciseCard />
       </div>
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-          <Set_repsPage>
-            <Button text={"Gå vidare >"} onClick={handleChange}></Button>
-          </Set_repsPage>
-        </div>
+      <div className="uxBackground fixed bottom-8 left-1/2 transform -translate-x-1/2">
+        <Set_repsPage>
+          <Button text={"Gå vidare >"} onClick={handleChange} />
+        </Set_repsPage>
+      </div>
     </div>
   )
 }
