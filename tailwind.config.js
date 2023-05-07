@@ -15,6 +15,7 @@ module.exports = {
    'primary': '#5A5A5A'},
   
    extend: {
+    
     colors: {
     ourcolor: {
       red : '#DD0000',
@@ -25,4 +26,8 @@ module.exports = {
    },
  },
  plugins: [],
+
+ 
 }
+
+

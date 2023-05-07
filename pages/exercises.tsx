@@ -14,15 +14,20 @@ const Excercises: NextPage<Props> = ({}) => {
   return (
     <div className="uxBackground h-screen flex flex-col" >
       <TopNav activeButton={'exercises'}></TopNav>
-      <div className=' flex-grow mt-20 overflow-auto'>
+      <div className='  flex-grow mt-20 overflow-auto'>
         
          <ExerciseCard />
-      </div>
-      <div className="uxBackground fixed bottom-8 left-1/2 transform -translate-x-1/2">
-        <Set_repsPage>
-          <Button text={"Gå vidare >"} onClick={handleChange} />
-        </Set_repsPage>
-      </div>
+      </div >
+      
+      <div className="uxBackground justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0" style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+  <Set_repsPage>
+    <Button text={"Gå vidare >"} onClick={handleChange} />
+  </Set_repsPage>
+</div>
+
+
+      
+     
     </div>
   )
 }
