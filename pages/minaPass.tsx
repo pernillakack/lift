@@ -17,23 +17,26 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
     backgroundImage:
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}>
-    <div className=''>
-    <h1 className=' text-lg'>Mina Pass:</h1>
-   
-      {workouts.map((workout) => (
-          <ul key={workout._id}> 
-            <li className='flex justify-between py-2' >  
-            <Button text={workout.name} onClick={function (): void {
-             throw new Error('Function not implemented.')} }></Button>
-            </li>
-
-          </ul>
-        )
-        ) 
-      }
-    </div>
-    </div>
+  <div className='flex flex-col h-screen my-auto mt-60 ml-9'>
+  <h1 className='text-lg'>Mina Pass</h1>
+  <div className="">
+    {workouts.map((workout) => (
+      <ul key={workout._id}  > 
+        <li className='flex justify-between py-2'>  
+          <Button text={[workout.name, " >"]}  onClick={function (): void {
+            throw new Error('Function not implemented.')
+          }}></Button>
+        </li>
+      </ul>
+    ))}
+  </div>
+ 
 </div>
+
+    </div>
+    </div>
+  
+
 
   
   )

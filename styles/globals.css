@@ -95,14 +95,14 @@
 
 .uxRedMark {
   position: absolute;
-  bottom: -3px;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
-  height: 1px;
-  width: 64px;
-  border-radius: 3px;
+  height: 5px;
+  width: 69px;
+  border-radius: 0px;
   background: rgba(231, 55, 55, 1);
-  border: 3px solid rgba(231, 55, 55, 1);
+  border: 0.5px solid rgba(231, 55, 55, 1);
 }
 
 .navBarText {

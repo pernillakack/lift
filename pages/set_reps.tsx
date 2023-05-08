@@ -29,7 +29,8 @@ const Set_reps: NextPage<Props> = ({}) => {
 const [name, setName] = useState("")
 const [reps, setReps] = useState(0)
 const [weight, setWeight] = useState(5)
- const [_id, setId] = useState("90")
+// const [_id, setId] = useState(ObjectId().toString());
+  const [_id, setId] = useState(null)
 const [sets, setSets] = useState(0)
 
 
@@ -52,7 +53,7 @@ const [sets, setSets] = useState(0)
  const handleClick = async () => {
     // TODO: Lägga till objektet Workout upp till databasen
   // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
-  const saveWorkout = { _id, musclegroup, sets, reps, exercise, weight,  name,  }
+  const saveWorkout = {_id,  musclegroup, sets, reps, exercise, weight,  name,  }
   // 
   try {
     console.log(saveWorkout)

@@ -4,10 +4,10 @@ import mongoose from "mongoose";
 
 const workoutSchema = new Schema<Workout>(
     {
-        _id: {
-            type: String
-
-        }, 
+     /*   _id: {
+            type: String,
+required: false
+        }, */
         musclegroup: {
             type: String,
             required: true,

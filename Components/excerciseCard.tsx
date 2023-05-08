@@ -3,16 +3,24 @@ import { TiPlus } from 'react-icons/ti';
 import MyContextProvider, { MyContext } from '@/context/my-context-provider';
 import { chosenExercise } from '@/functions/chosenEx';
 import TopNav from './topNav';
+import { TiMinus } from 'react-icons/ti';
 
-const ExerciseCard = () => {
+interface Props {
+  onSelectExercise: (exercise: string, muscleGroup: string) => void;
+}
+
+const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
   const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
   const exerciseContext = useContext(MyContext);
   const [isColored, setIsColored] = useState<{ [key: string]: boolean }>({});
+
 
   const handleExercise = (element: { id: number; exercise: string; muscleGroup: string }) => {
     // Spara det valda objektet i en Array
     const newExercise = `${element.exercise} ${element.muscleGroup}`;
     setSelectedExercise((prevState) => [...prevState, newExercise]);
+    //f
+
     //färga det valda kortets bakgrund grön
     setIsColored((prevState) => ({
       ...prevState,
@@ -53,9 +61,16 @@ const ExerciseCard = () => {
               </div>
             </div>
             <div id="container plus" className="flex my-4 ml-1 mr-2">
-              <div>
+              {isColored[element.id] ? (
+                <div>
+                <TiMinus className=" mb-8 w-[18px] h-[18px] top-[33px] left[297px]" />
+              </div>
+              ) : (
+                <div>
                 <TiPlus className=" mb-8 w-[18px] h-[18px] top-[33px] left[297px]" />
               </div>
+              )}
+             
             </div>
           </div>
         </li>

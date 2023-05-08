@@ -35,7 +35,8 @@ console.log(newWorkout);
     if (
      
 
-      Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && key !== "weigth"   && !value)
+      Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   &&  key !== "weigth"   && !value)
+      // 
     ) {
       console.log("Inside if-statement")
       res.status(400).json("Invalid workout data")
