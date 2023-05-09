@@ -8,7 +8,9 @@ type TopNavProps = {
 
 const TopNav = ({ activeButton }: TopNavProps) => {
   return (
-    <div style={{ fontWeight: 600, fontSize:32, fontStretch: '70%', font:' Anton'   }}  className=" h-8   uxBackground fixed  text-left justify-center  w-screen top-0 h-55 flex space-x-4 mx-0">
+    <div style={{ fontWeight: 600, fontSize:32, fontStretch: '70%', font:' Anton'   }}  
+    className="    uxBackground fixed  text-left justify-center 
+     w-screen top-0  flex space-x-4 mx-0">
       <Link href={"/exercises"}>
         <button 
           style={{ 

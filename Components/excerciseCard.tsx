@@ -5,6 +5,7 @@ import { chosenExercise } from '@/functions/chosenEx';
 import TopNav from './topNav';
 import { TiMinus } from 'react-icons/ti';
 
+
 interface Props {
   onSelectExercise: (exercise: string, muscleGroup: string) => void;
 }
@@ -42,7 +43,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
       return searchRegex.test(element.exercise) || searchRegex.test(element.muscleGroup);
     })
     .map((element) => (
-      <div className=" uxBackground m-4">
+      <div className=" container  uxBackground m-4">
         <li key={`${element.id}`}>
           <div
             onClick={() => handleExercise(element)}
@@ -79,8 +80,12 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
 
   return (
     <>
-      <div>
-        <div id="searchBar" className='py-2 px-4 border border-gray-300 rounded-md m-8 '>
+      <div className='flex'>
+        <div className=' h-65  uxBackground fixed w-screen   justify-center 
+        flex  mx-0'
+        > 
+        <div id="searchBar" className=' flex fixed  py-2 px-6 border border-gray-300 rounded-3xl m-8  '>
+          
           <input
           
             type="text"
@@ -89,10 +94,14 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
             onChange={(event) => setSearchQuery(event.target.value)}
           />
         </div>
-        <ul>{listExercises}</ul>
+        </div>
+        <div className="exercise-list-container" style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}></div>
+        <ul className=' mt-20'>{listExercises}</ul>
       </div>
     </>
   );
 };
 
 export default ExerciseCard;
+
+

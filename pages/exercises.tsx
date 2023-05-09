@@ -38,5 +38,6 @@ const Excercises: NextPage<Props> = ({}) => {
   );
 };
 
+
 export default Excercises;
 
