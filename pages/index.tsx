@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
-import ExercisePage from './exercisePage'
 import Button from '@/Components/button'
+import Link from 'next/link'
 
 
 
@@ -20,9 +20,9 @@ const Index: NextPage<Props> = ({}) => {
    maxWidth:700}}>
     <div className=' flex justify-center'>
     <div className="fixed bottom-25 left-1/2 transform -translate-x-1/2">
-      <ExercisePage>
+      <Link href='/exercises'>
         <Button text={"Skapa pass >"} onClick={onClick} ></Button>
-        </ExercisePage>
+        </Link>
       </div>
     </div>
     </div>

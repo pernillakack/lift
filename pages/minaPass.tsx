@@ -4,9 +4,16 @@ import { Workout } from '@/types/workout'
 import { connectToDatabase } from '@/utils/db'
 import { WorkoutModel } from '@/schemas/workoutSchema'
 import Button from '@/Components/button'
+import Link from 'next/link'
+import RenderWorkoutPage from './renderWorkoutPage'
 
 type Props = {
     workouts: Workout []
+}
+
+const handleClick = ()=> {
+
+  
 }
 
 const MinaPass: NextPage<Props> = ({workouts}) => {
@@ -23,9 +30,10 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
     {workouts.map((workout) => (
       <ul key={workout._id}  > 
         <li className='flex justify-between py-2'>  
-          <Button text={[workout.name, " >"]}  onClick={function (): void {
-            throw new Error('Function not implemented.')
-          }}></Button>
+      {/*   <RenderWorkoutPage workout={`${workout.name} ${workout.sets} ${workout.reps} ${workout.weight} ${workout.exercise} ${workout.musclegroup}`} /> */}
+      <Link href='/renderWorkout'> 
+        <Button text={[workout.name, " >"]}  onClick={handleClick}></Button>
+        </Link> 
         </li>
       </ul>
     ))}

@@ -4,6 +4,7 @@ import ExerciseCard from '@/Components/excerciseCard';
 import Set_repsPage from './set_repsPage';
 import Button from '@/Components/button';
 import TopNav from '@/Components/topNav';
+import Link from 'next/link';
 
 interface Props {}
 
@@ -30,9 +31,9 @@ const Excercises: NextPage<Props> = ({}) => {
         className="uxBackground justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0"
         style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
       >
-        <Set_repsPage>
+        <Link href='/set_reps'>
           <Button text={'Gå vidare >'} onClick={handleChange} />
-        </Set_repsPage>
+        </Link>
       </div>
     </div>
   );
