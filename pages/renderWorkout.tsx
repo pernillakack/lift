@@ -1,7 +1,6 @@
 import { NextPage } from 'next'
 import { Workout } from '@/types/workout'
 
-import { WorkoutModel } from '@/schemas/workoutSchema'
 
 type Props = {
   workouts: Workout []

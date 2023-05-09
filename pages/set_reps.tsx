@@ -1,18 +1,9 @@
 import { NextPage } from 'next'
-import MyContextProvider from '@/context/my-context-provider'
 import { MyContext } from '@/context/my-context-provider'
-import { MouseEventHandler, useContext, useState } from 'react'
-import ExerciseCard from '@/Components/excerciseCard'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
-import MinaPass from './minaPass'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
-import { ChangeEvent } from 'react'
-
-import { ObjectId } from 'mongodb'
-
-
-
 
 interface Props {}
 

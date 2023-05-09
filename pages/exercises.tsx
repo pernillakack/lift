@@ -1,7 +1,6 @@
 import { NextPage } from 'next';
 import React, { useState } from 'react';
 import ExerciseCard from '@/Components/excerciseCard';
-import Set_repsPage from './set_repsPage';
 import Button from '@/Components/button';
 import TopNav from '@/Components/topNav';
 import Link from 'next/link';

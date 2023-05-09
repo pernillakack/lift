@@ -5,7 +5,7 @@ import { connectToDatabase } from '@/utils/db'
 import { WorkoutModel } from '@/schemas/workoutSchema'
 import Button from '@/Components/button'
 import Link from 'next/link'
-import RenderWorkoutPage from './renderWorkoutPage'
+
 
 type Props = {
     workouts: Workout []
