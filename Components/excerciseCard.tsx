@@ -16,7 +16,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
   const [isColored, setIsColored] = useState<{ [key: string]: boolean }>({});
 
 
-  const handleExercise = (element: { id: number; exercise: string; muscleGroup: string }) => {
+  const handleExercise = (element: { nr: number; exercise: string; muscleGroup: string }) => {
     // Spara det valda objektet i en Array
     const newExercise = `${element.exercise} ${element.muscleGroup}`;
     setSelectedExercise((prevState) => [...prevState, newExercise]);
@@ -25,7 +25,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
     //färga det valda kortets bakgrund grön
     setIsColored((prevState) => ({
       ...prevState,
-      [element.id]: !prevState[element.id],
+      [element.nr]: !prevState[element.nr],
     }));
 
     // Sätt övningens värden i ExerciseContext
@@ -44,12 +44,12 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
     })
     .map((element) => (
       <div className=" container  uxBackground m-4">
-        <li key={`${element.id}`}>
+        <li key={`${element.nr}`}>
           <div
             onClick={() => handleExercise(element)}
             id="card"
             className={`flex justify-between px-4 py-4 h-20 ${
-              isColored[element.id] ? ' bg-ourcolor-green' : ' bg-ourcolor-white'
+              isColored[element.nr] ? ' bg-ourcolor-green' : ' bg-ourcolor-white'
             } uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]`}
           >
             <div id="info" className="block">
@@ -62,7 +62,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
               </div>
             </div>
             <div id="container plus" className="flex my-4 ml-1 mr-2">
-              {isColored[element.id] ? (
+              {isColored[element.nr] ? (
                 <div>
                 <TiMinus className=" mb-8 w-[18px] h-[18px] top-[33px] left[297px]" />
               </div>
