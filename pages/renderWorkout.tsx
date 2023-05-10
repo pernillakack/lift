@@ -3,6 +3,7 @@ import { Workout } from '@/types/workout'
 import Button from '@/Components/button'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
+import { useRouter } from 'next/router'
 
 
 
@@ -15,25 +16,28 @@ const handleClick = async () => {
 
 type Props = {
   workouts: Workout []
+  
 }
 
 
 
-const RenderWorkout: NextPage<Props> = ({workouts}) => {
+const RenderWorkout: NextPage<Props> = ({}) => {
+  const router = useRouter()
+  const {name, sets, reps} = router.query
   return( 
 <div className=' uxBackground h-screen block '> 
     <form className=' py-12 flex justify-center'>
     <div >
-    <h1>Tisdag</h1>
+    <h1>{`${name}`}</h1>
     </div>
     </form>
     
    
     <ul >
         <li className='flex justify-between' >
-            <div className=' ml-6'>{} SET</div>
-            <div> Reps</div>
-            <div className=' mr-6'>{} Kg</div>
+            <div className=' ml-6'>{`${sets}`} SET</div>
+            <div>{`${reps}`} Reps</div>
+            <div className=' mr-6'>0 Kg</div>
         </li>
     </ul>
     <Link href="/minaPass">
