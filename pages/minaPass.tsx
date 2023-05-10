@@ -31,7 +31,7 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
       <ul key={workout._id}  > 
         <li className='flex justify-between py-2'>  
       {/*   <RenderWorkoutPage workout={`${workout.name} ${workout.sets} ${workout.reps} ${workout.weight} ${workout.exercise} ${workout.musclegroup}`} /> */}
-      <Link href={`/renderWorkout?name=${workout.name}&sets=${workout.sets}&reps=${workout.reps}`}> 
+      <Link href={`/renderWorkout?name=${workout.name}&sets=${workout.sets}&reps=${workout.reps}&exercise=${workout.exercise}`}> 
         <Button text={[workout.name, " >"]}  onClick={handleClick}></Button>
         </Link> 
         </li>
