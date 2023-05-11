@@ -4,11 +4,14 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
+import { Workout } from '@/types/workout'
 
-interface Props {}
+type Props = {
+  workouts: Workout[]
+}
 
 
-const Set_reps: NextPage<Props> = ({}) => {
+const Set_reps: NextPage<Props> = ({workouts}) => {
 
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
@@ -67,7 +70,7 @@ console.log(" Hallå?")
   // Den här läses av
     console.log(saveWorkout)
   }
- 
+
 
   return (
   <div>
@@ -75,6 +78,7 @@ console.log(" Hallå?")
     <div  className=' uxBackground h-screen block '>
    <TopNav activeButton={'set_reps'}></TopNav>
     <br />
+     
       <form className=' pt-20 flex justify-center'>
       <input 
       type="text" 
@@ -84,17 +88,22 @@ console.log(" Hallå?")
       
       required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-7 text-center m-4'   ></input>
+
+      
       </form> 
-      <div className='flex m-4 py-0'>
+
+   <div className='flex m-4 py-0'>
     <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
-        <div className=' py-3' id='container'>
+        <div className=' py-3' id='container'>  
 
-            <div id='övning'className='  flex'>{`${exercise}`}</div>
-            <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>
+        
+           
+      {/*     {workouts.map((workout)=> (  */}
+   <ul key={workout.nr}>
 
-        </div>
-
-        <div className=''>
+<div id='övning'className='  flex'>{`${exercise}`}</div>
+<div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>
+<div className=''>
         <form id='inputs' className='flex justify-center py-3'>
         <input type="text" value={sets} 
       onChange={(e) => setSets(parseInt(e.target.value))}   
@@ -108,6 +117,19 @@ console.log(" Hallå?")
             <div id='reps' className=' mt-0  ml-4 mr-2 text-xs  '>Reps</div> 
         </div>
         </div>
+
+</ul>
+
+
+
+           ))  
+} 
+
+           
+
+        </div>
+
+       
         </div>
         </div>
     </div>

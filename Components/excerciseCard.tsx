@@ -1,17 +1,25 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext,  useState } from 'react';
 import { TiPlus } from 'react-icons/ti';
 import MyContextProvider, { MyContext } from '@/context/my-context-provider';
 import { chosenExercise } from '@/functions/chosenEx';
 import TopNav from './topNav';
 import { TiMinus } from 'react-icons/ti';
-
+import { useEffect } from 'react';
 
 interface Props {
   onSelectExercise: (exercise: string, muscleGroup: string, nr: number) => void;
 }
 
+
+
 const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
+  
   const [selectedExercise, setSelectedExercise] = useState<{ nr: number; exercise: string; muscleGroup: string}[]>([]);
+
+  useEffect(() => {
+    console.log("Använder useEffect, selectedExercise",selectedExercise)
+  }, [selectedExercise])
+
   const exerciseContext = useContext(MyContext);
   const [isColored, setIsColored] = useState<{ [key: string]: boolean }>({});
 
@@ -22,8 +30,8 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
     const newExerciseArray = []
     const newExercise = { nr: element.nr, exercise: element.exercise, muscleGroup: element.muscleGroup };
     newExerciseArray.push(newExercise)
-    console.log('Vår array: ', newExerciseArray)
-
+   
+    console.log("Inne i handleExercise")
     //Kontrollerar om det nya objektet redan finns
       const existingExercise = selectedExercise.find(
       (exercise) =>
@@ -38,9 +46,13 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
         //finns den inte läggs den till
     } else {
       setSelectedExercise((prevState) => [...prevState, newExercise])
+   //   console.log("Inne i else, använder selectedExercise",selectedExercise)
+     // console.log('Vår array: ', newExerciseArray)
+
+      
     }
     
-    console.log(newExercise)
+   
     //färga det valda kortets bakgrund grön
     setIsColored((prevState) => ({
       ...prevState,
