@@ -7,21 +7,40 @@ import { TiMinus } from 'react-icons/ti';
 
 
 interface Props {
-  onSelectExercise: (exercise: string, muscleGroup: string) => void;
+  onSelectExercise: (exercise: string, muscleGroup: string, nr: number) => void;
 }
 
 const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
-  const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
+  const [selectedExercise, setSelectedExercise] = useState<{ nr: number; exercise: string; muscleGroup: string}[]>([]);
   const exerciseContext = useContext(MyContext);
   const [isColored, setIsColored] = useState<{ [key: string]: boolean }>({});
 
+  const exercises = chosenExercise();
 
   const handleExercise = (element: { nr: number; exercise: string; muscleGroup: string }) => {
     // Spara det valda objektet i en Array
-    const newExercise = `${element.exercise} ${element.muscleGroup}`;
-    setSelectedExercise((prevState) => [...prevState, newExercise]);
-    //f
+    const newExerciseArray = []
+    const newExercise = { nr: element.nr, exercise: element.exercise, muscleGroup: element.muscleGroup };
+    newExerciseArray.push(newExercise)
+    console.log('Vår array: ', newExerciseArray)
 
+    //Kontrollerar om det nya objektet redan finns
+      const existingExercise = selectedExercise.find(
+      (exercise) =>
+        exercise.exercise === newExercise.exercise && exercise.muscleGroup === newExercise.muscleGroup && exercise.nr === newExercise.nr
+    ) //om den finns så tas den bort?
+    if(existingExercise) {
+      setSelectedExercise((prevState) =>
+      prevState.filter(
+        (exercise) => 
+          exercise.exercise !== existingExercise.exercise || exercise.muscleGroup !== existingExercise.muscleGroup || exercise.nr !== existingExercise.nr
+      ))
+        //finns den inte läggs den till
+    } else {
+      setSelectedExercise((prevState) => [...prevState, newExercise])
+    }
+    
+    console.log(newExercise)
     //färga det valda kortets bakgrund grön
     setIsColored((prevState) => ({
       ...prevState,
@@ -31,9 +50,10 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
     // Sätt övningens värden i ExerciseContext
     exerciseContext.setExercise(element.exercise);
     exerciseContext.setMusclegroup(element.muscleGroup);
+    exerciseContext.setSelectedExercise([])
   };
 
-  const exercises = chosenExercise();
+  
 
   const [searchQuery, setSearchQuery] = useState<string>('');
 
