@@ -98,7 +98,7 @@ console.log(" Hallå?")
 
         
            
-      {/*     {workouts.map((workout)=> (  */}
+      {/*     {workouts.map((workout)=> (
    <ul key={workout.nr}>
 
 <div id='övning'className='  flex'>{`${exercise}`}</div>
@@ -123,7 +123,7 @@ console.log(" Hallå?")
 
 
            ))  
-} 
+} */}
 
            
 
