@@ -125,7 +125,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
           />
-        </div>
+        </div>tets
         </div>
         <div className="exercise-list-container" style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}></div>
         <ul className=' mt-20'>{listExercises}</ul>
