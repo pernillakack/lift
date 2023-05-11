@@ -22,7 +22,8 @@ const Excercises: NextPage<Props> = ({}) => {
   return (
     <div className="uxBackground h-screen flex flex-col">
       <TopNav activeButton={'exercises'}></TopNav>
-      <div className="flex-grow mt-20 overflow-auto">
+      
+      <div className="flex-grow mt-20 py-8 overflow-auto">
         <ExerciseCard onSelectExercise={handleSelectExercise} />
       </div>
 

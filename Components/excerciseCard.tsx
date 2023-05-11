@@ -116,16 +116,17 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
         <div className=' h-65  uxBackground fixed w-screen   justify-center 
         flex  mx-0'
         > 
-        <div id="searchBar" className=' flex fixed  py-2 px-6 border border-gray-300 rounded-3xl m-8  '>
-          
+        <div id="searchBar" className=' flex h-6 items-center  fixed  py-4 px-6 border border-gray-300 rounded-3xl m-8  '>
+        <img src="https://lift94.files.wordpress.com/2023/05/keylift.png?w=17" className="w-5 h-5 object-cover mr-0" alt="nyckel" />
           <input
           
             type="text"
             placeholder="Sök..."
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
+            className="py-2 px-3 bg-transparent rounded-full focus:outline-none w-full"
           />
-        </div>tetsing
+        </div>
         </div>
         <div className="exercise-list-container" style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}></div>
         <ul className=' mt-20'>{listExercises}</ul>
