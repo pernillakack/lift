@@ -98,8 +98,7 @@ console.log(" Hallå?")
 
         
            
-      {/*     {workouts.map((workout)=> (
-   <ul key={workout.nr}>
+     
 
 <div id='övning'className='  flex'>{`${exercise}`}</div>
 <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>
@@ -118,12 +117,12 @@ console.log(" Hallå?")
         </div>
         </div>
 
-</ul>
 
 
 
-           ))  
-} */}
+
+            
+
 
            
 
