@@ -5,19 +5,43 @@ import Link from 'next/link'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
 import { Workout } from '@/types/workout'
+import { useRouter } from 'next/router'
 
 interface Props {
   workouts: Workout []
 }
 
+  
+  
 
 const Set_reps: NextPage<Props> = ({}) => {
 
-  const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
+  const router = useRouter()
+  const selectedExercises = router.query.selectedExercises && typeof router.query.selectedExercises === 'string' ? router.query.selectedExercises : "";
+  const exercises = JSON.parse(selectedExercises)
+  console.log("Den parsade selectedExercise, hämtad med url: ", exercises)
+
+  //const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
 
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
-  const workoutContext = useContext(MyContext)
+  const [selectedExercise] = useState<{ nr: number; exercise: string; muscleGroup: string}[]>([]);
+  console.log("selectedExercise: ",selectedExercise)
 
+  console.log("selectedWorkout: ",selectedWorkout)
+  
+  const workoutContext = useContext(MyContext)
+  console.log("workoutContext: ",workoutContext)
+  
+ 
+  console.log("Alla objekt i selectedExercise: ")
+  selectedExercise.forEach(object => {
+    console.log(JSON.stringify(object))
+  })
+  
+  
+  
+  
+  
   const { exercise, musclegroup,   } = useContext(MyContext);
 
 
@@ -34,10 +58,12 @@ const [sets, setSets] = useState(0)
     //spara exercise, musclegroup, reps, sets och name
     
   const newWorkout = `${element.exercise} ${element.musclegroup} ${element.reps} ${element.sets} ${element.name}`;
+
+
   
   
- setSelectedWorkout(prevState => [...prevState, newWorkout]);
- console.log(saveWorkout)
+// setSelectedWorkout(prevState => [...prevState, newWorkout]);
+// console.log(saveWorkout)
   }
 
   function setInput(value: string) {
