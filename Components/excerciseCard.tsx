@@ -5,6 +5,8 @@ import { chosenExercise } from '@/functions/chosenEx';
 import TopNav from './topNav';
 import { TiMinus } from 'react-icons/ti';
 import { useEffect } from 'react';
+import Link from 'next/link';
+import Button from './button';
 
 interface Props {
   onSelectExercise: (exercise: string, muscleGroup: string, nr: number) => void;
@@ -65,18 +67,23 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
     exerciseContext.setSelectedExercise([])
   };
 
+  const handleclick = () => {
+    console.log();
+  };
+
   
 
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const listExercises = exercises
-    .filter((element) => {
+  .filter((element) => {
       const searchRegex = new RegExp(searchQuery, 'i');
       return searchRegex.test(element.exercise) || searchRegex.test(element.muscleGroup);
     })
     .map((element) => (
       <div className=" container  uxBackground m-4">
         <li key={`${element.nr}`}>
+
           <div
             onClick={() => handleExercise(element)}
             id="card"
@@ -131,10 +138,22 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
         <div className="exercise-list-container" style={{ maxHeight: "calc(100vh - 200px)", overflowY: "auto" }}></div>
         <ul className=' mt-20'>{listExercises}</ul>
       </div>
+      <div
+        className="uxBackground justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0"
+        style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
+      >
+        <Link href={`/set_reps?selectedExercise=${JSON.stringify(selectedExercise)}`}>
+          <Button text={'Gå vidare >'} onClick={handleclick}></Button>
+        </Link>
+      </div>
     </>
   );
 };
 
 export default ExerciseCard;
 
-
+/*
+<Link href='/set_reps{}'>
+          <Button text={'Gå vidare >'} onClick={handleChange} />
+        </Link>
+*/

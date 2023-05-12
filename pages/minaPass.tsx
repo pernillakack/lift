@@ -6,6 +6,7 @@ import { WorkoutModel } from '@/schemas/workoutSchema'
 import Button from '@/Components/button'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
+import { useRouter } from 'next/router'
 
 
 type Props = {
@@ -18,6 +19,8 @@ const handleClick = ()=> {
 }
 
 const MinaPass: NextPage<Props> = ({workouts}) => {
+  const router = useRouter ()
+
   return (
     <div className=' h-screen flex justify-center'>
   <div className=" bg-cover w-full flex items-center justify-center"

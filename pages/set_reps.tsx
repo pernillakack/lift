@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { MyContext } from '@/context/my-context-provider'
-import { useContext, useState } from 'react'
+import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useContext, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
@@ -14,29 +14,34 @@ interface Props {
   
   
 
-const Set_reps: NextPage<Props> = ({}) => {
+const Set_reps: NextPage<Props> = ({workouts}) => {
 
   const router = useRouter()
-  const selectedExercises = router.query.selectedExercises && typeof router.query.selectedExercises === 'string' ? router.query.selectedExercises : "";
-  const exercises = JSON.parse(selectedExercises)
-  console.log("Den parsade selectedExercise, hämtad med url: ", exercises)
+
+  //const{selectedExercise} = router.query
+
+ // console.log(selectedExercise)
+  
+   const selectedExercise = router.query.selectedExercise && typeof router.query.selectedExercise === 'string' ? router.query.selectedExercise : "";
+   const exercises = JSON.parse(selectedExercise)
+   console.log("Den parsade selectedExercise, hämtad med url som heter exercises: ", exercises)
 
   //const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
 
-  const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
-  const [selectedExercise] = useState<{ nr: number; exercise: string; muscleGroup: string}[]>([]);
-  console.log("selectedExercise: ",selectedExercise)
+  // const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
+ // const [selectedExercise] = useState<{ nr: number; exercise: string; muscleGroup: string}[]>([]);
+  console.log("Inne i set_reps: selectedExercise: ",selectedExercise)
 
-  console.log("selectedWorkout: ",selectedWorkout)
+ // console.log("selectedWorkout: ",selectedWorkout)
   
   const workoutContext = useContext(MyContext)
   console.log("workoutContext: ",workoutContext)
   
  
   console.log("Alla objekt i selectedExercise: ")
-  selectedExercise.forEach(object => {
-    console.log(JSON.stringify(object))
-  })
+  //selectedExercise.forEach(object => {
+ //   console.log(JSON.stringify(object))
+ // })
   
   
   
@@ -121,6 +126,10 @@ console.log(" Hallå?")
     <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
         <div className=' py-3' id='container'>
 
+{exercises.map((exercise: { id: Key | null | undefined }) =>(
+  <div key={exercise.id}>{`${exercise}`}</div>
+)
+)}
 
 
             <div id='övning'className='  flex'>{`${exercise}`}</div>
