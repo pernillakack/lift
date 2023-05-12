@@ -4,8 +4,11 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
+import { Workout } from '@/types/workout'
 
-interface Props {}
+interface Props {
+  workouts: Workout []
+}
 
 
 const Set_reps: NextPage<Props> = ({}) => {
@@ -74,8 +77,6 @@ console.log(" Hallå?")
   return (
   <div>
 
-
-    
     
     <div  className=' uxBackground h-screen block '>
    <TopNav activeButton={'set_reps'}></TopNav>
@@ -93,6 +94,8 @@ console.log(" Hallå?")
       <div className='flex m-4 py-0'>
     <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
         <div className=' py-3' id='container'>
+
+
 
             <div id='övning'className='  flex'>{`${exercise}`}</div>
             <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>

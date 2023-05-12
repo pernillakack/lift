@@ -46,7 +46,7 @@ const initialExerciseContext: ExerciseContextProps = {
     id: 0,
     setId: 0,
     selectedExercise: [],
-    setSelectedExercise: () => {},
+    setSelectedExercise: (exercises: Workout[]) => {},
     setExercise: () => { },
     setMusclegroup: () => { },
     setSets: () => { },
@@ -79,7 +79,7 @@ const MyContextProvider: React.FC<ExerciseProviderProps> = ({children}) => {
         setName: '',
         id: 0,
         selectedExercise: [],
-        setSelectedExercise: (exercises: Workout[]) => setSelectedExercise(exercises),
+        setSelectedExercise: (exercises: Workout[]) => {},
         setId: 0,
         setExercise: (exercise: string) => setExercise(exercise),
         setMusclegroup: (musclegroup: string) => setMusclegroup(musclegroup),
@@ -94,6 +94,7 @@ const MyContextProvider: React.FC<ExerciseProviderProps> = ({children}) => {
 }
 
 export default MyContextProvider
+
 
 function setSelectedExercise(exercises: Workout[]): void {
     throw new Error('Function not implemented.')
