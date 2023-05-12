@@ -10,6 +10,8 @@ interface Props {}
 
 const Set_reps: NextPage<Props> = ({}) => {
 
+  const [selectedExercise, setSelectedExercise] = useState<string[]>([]);
+
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
 
@@ -71,6 +73,22 @@ console.log(" Hallå?")
 
   return (
   <div>
+
+
+      <div>
+      {/* Övriga delar av koden */}
+      {selectedExercise.length > 0 && (
+        <ul>
+          {selectedExercise.map((exercise, index) => (
+            <li key={index}>
+              {exercise} - {sets} set, {reps} reps
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+
     
     <div  className=' uxBackground h-screen block '>
    <TopNav activeButton={'set_reps'}></TopNav>
