@@ -11,9 +11,6 @@ interface Props {
   workouts: Workout []
 }
 
-  
-  
-
 const Set_reps: NextPage<Props> = ({workouts}) => {
 
   const router = useRouter()
@@ -98,8 +95,6 @@ console.log(" Hallå?")
     console.error(error);
   }
 
-
-
   // Den här läses av
     console.log(saveWorkout)
   }
@@ -118,25 +113,20 @@ console.log(" Hallå?")
       id='name'
       value={name} 
       onChange={(e) => setName(e.target.value)} 
-      
       required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-7 text-center m-4'   ></input>
       </form> 
+
+      {exercises.map((index: { nr: number, exercise: string, muscleGroup: string }) =>(
+      <div key={index.nr}>
       <div className='flex m-4 py-0'>
-    <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
+        <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
         <div className=' py-3' id='container'>
 
-{exercises.map((exercise: { id: Key | null | undefined }) =>(
-  <div key={exercise.id}>{`${exercise}`}</div>
-)
-)}
-
-
-            <div id='övning'className='  flex'>{`${exercise}`}</div>
-            <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${musclegroup}`}</div>
-
+            <div id='övning'className='  flex'>{`${index.exercise}`}</div>
+            <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${index.muscleGroup}`}</div>
+            
         </div>
-
         <div className=''>
         <form id='inputs' className='flex justify-center py-3'>
         <input type="text" value={sets} 
@@ -153,6 +143,9 @@ console.log(" Hallå?")
         </div>
         </div>
         </div>
+        </div>
+        )
+        )}
     </div>
     <Link href="/minaPass">
   <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
