@@ -64,8 +64,8 @@ const [sets, setSets] = useState(0)
 
   
   
-// setSelectedWorkout(prevState => [...prevState, newWorkout]);
-// console.log(saveWorkout)
+ //setSelectedWorkout(prevState => [...prevState, newWorkout]);
+ console.log(saveWorkout)
   }
 
   function setInput(value: string) {
@@ -76,15 +76,14 @@ const [sets, setSets] = useState(0)
 
  const handleClick = async () => {
     // TODO: Lägga till objektet Workout upp till databasen
-  // 1. Gör en consol.log för att visa upp datan som skrivits in i inputs
-  const saveWorkout = {_id,  musclegroup, sets, reps, exercise, weight,  name,  }
+  const saveWorkout = [name,{ musclegroup, sets, reps, exercise, weight }]
   // 
   try {
-    console.log(saveWorkout)
+    console.log("saveWorkout inuti handleClick i set_reps:", [saveWorkout])
 const response = await fetch ('api/user/newWorkout', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body:JSON.stringify(saveWorkout),
+  body:JSON.stringify([saveWorkout]),
 });
 
 const data = await response.json();
@@ -117,7 +116,7 @@ console.log(" Hallå?")
       className=' flex w-50 h-7 text-center m-4'   ></input>
       </form> 
 
-      {exercises.map((index: { nr: number, exercise: string, muscleGroup: string }) =>(
+      {exercises.map((index: { nr: number, exercise: string, muscleGroup: string, sets: number, reps: number }) =>(
       <div key={index.nr}>
       <div className='flex m-4 py-0'>
         <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
@@ -129,11 +128,11 @@ console.log(" Hallå?")
         </div>
         <div className=''>
         <form id='inputs' className='flex justify-center py-3'>
-        <input type="text" value={sets} 
+        <input type="text" value={index.sets} 
       onChange={(e) => setSets(parseInt(e.target.value))}   
        name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
-            <input type='text' value={reps} 
+            <input type='text' value={index.reps} 
       onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
