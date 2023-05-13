@@ -8,6 +8,7 @@ import { Workout } from '@/types/workout'
 import { useRouter } from 'next/router'
 
 interface Props {
+  name: string
   workouts: Workout []
 }
 
@@ -40,10 +41,6 @@ const Set_reps: NextPage<Props> = ({workouts}) => {
  //   console.log(JSON.stringify(object))
  // })
   
-  
-  
-  
-  
   const { exercise, musclegroup,   } = useContext(MyContext);
 
 
@@ -64,8 +61,8 @@ const [sets, setSets] = useState(0)
 
   
   
- //setSelectedWorkout(prevState => [...prevState, newWorkout]);
- console.log(saveWorkout)
+// setSelectedWorkout(prevState => [...prevState, newWorkout]);
+// console.log(saveWorkout)
   }
 
   function setInput(value: string) {
@@ -75,15 +72,26 @@ const [sets, setSets] = useState(0)
 
 
  const handleClick = async () => {
-    // TODO: Lägga till objektet Workout upp till databasen
-  const saveWorkout = [name,{ musclegroup, sets, reps, exercise, weight }]
-  // 
+   
+  const saveWorkout = exercises.map((exercise: any) => {
+    return {
+      ...exercise,
+      sets: sets,
+      reps: reps
+    }
+  }) 
+  console.log("saveWorkout i handleClick: ",saveWorkout)
+  const namedWorkout = [
+    name,
+    saveWorkout
+  ]
+  console.log("namedWorkout i handleClick: ",namedWorkout)
   try {
-    console.log("saveWorkout inuti handleClick i set_reps:", [saveWorkout])
+    console.log([saveWorkout])
 const response = await fetch ('api/user/newWorkout', {
   method: 'POST',
   headers: {'Content-Type': 'application/json'},
-  body:JSON.stringify([saveWorkout]),
+  body:JSON.stringify(namedWorkout),
 });
 
 const data = await response.json();
