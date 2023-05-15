@@ -1,7 +1,7 @@
 import { connectToDatabase } from "@/utils/db"
 import type { NextApiRequest, NextApiResponse } from "next"
 import { Workout } from "@/types/workout"
-import { WorkoutModel } from "@/schemas/workoutSchema"
+import { MyWorkoutModel } from "@/schemas/workoutSchema"
 
 
 export default async function handler(
@@ -21,7 +21,9 @@ console.log(newWorkout);
   console.log("NewWorkout")
   try {
     const saveWorkout: Workout = newWorkout as Workout
-    console.log("saveWorkout",saveWorkout)
+
+
+    console.log("saveWorkout innan de enskilda",saveWorkout)
     console.log(saveWorkout._id)
     console.log(saveWorkout.exercise)
     console.log(saveWorkout.musclegroup)
@@ -30,8 +32,11 @@ console.log(newWorkout);
     console.log(saveWorkout.weight)
     console.log(saveWorkout.name)
 
-    console.log(Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && key !== "weigth"   && !value))
-    console.log(Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && !value))
+
+    console.log("debugging now", saveWorkout)
+
+    console.log("objektentries",Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && key !== "weight"   && !value))
+    console.log("objektentries utan weight",Object.entries(saveWorkout).some(([key, value]) => key !== "_id"   && !value))
     if (
      
 
@@ -47,7 +52,7 @@ console.log(newWorkout);
     console.log("preparing to save")
 
     await connectToDatabase()
-    const workoutDoc = new WorkoutModel(saveWorkout)
+    const workoutDoc = new MyWorkoutModel(saveWorkout)
     await workoutDoc.save()
 
     res.status(200).json(saveWorkout)

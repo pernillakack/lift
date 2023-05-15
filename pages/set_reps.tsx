@@ -8,7 +8,7 @@ import { Workout } from '@/types/workout'
 import { useRouter } from 'next/router'
 
 interface Props {
-  name: string
+  
   workouts: Workout []
 }
 
@@ -40,6 +40,8 @@ const Set_reps: NextPage<Props> = ({workouts}) => {
   //selectedExercise.forEach(object => {
  //   console.log(JSON.stringify(object))
  // })
+
+ console.log()
   
   const { exercise, musclegroup,   } = useContext(MyContext);
 
@@ -77,12 +79,13 @@ const [sets, setSets] = useState(0)
     return {
       ...exercise,
       sets: sets,
-      reps: reps
+      reps: reps,
+      name: name
     }
   }) 
   console.log("saveWorkout i handleClick: ",saveWorkout)
   const namedWorkout = [
-    name,
+   
     saveWorkout
   ]
   console.log("namedWorkout i handleClick: ",namedWorkout)

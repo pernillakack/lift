@@ -2,7 +2,7 @@
 import { NextPage, GetServerSideProps } from 'next'
 import { Workout } from '@/types/workout'
 import { connectToDatabase } from '@/utils/db'
-import { WorkoutModel } from '@/schemas/workoutSchema'
+import { MyWorkoutModel } from '@/schemas/workoutSchema'
 import Button from '@/Components/button'
 import Link from 'next/link'
 import { MouseEvent } from 'react'
@@ -35,7 +35,7 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
         <li className='flex justify-between py-2'>  
       {/*   <RenderWorkoutPage workout={`${workout.name} ${workout.sets} ${workout.reps} ${workout.weight} ${workout.exercise} ${workout.musclegroup}`} /> */}
       <Link href={`/renderWorkout?name=${workout.name}&sets=${workout.sets}&reps=${workout.reps}&exercise=${workout.exercise}`}> 
-        <button className=" text-[color:black] text-xl bg-ourcolor-white py-5 px-8 rounded-lg w-80 ">{`${workout.name.slice(0,22)} >`}</button>
+        <button className=" text-[color:black] text-xl bg-ourcolor-white py-5 px-8 rounded-lg w-80 ">{`${workout.name} >`}</button>
         </Link> 
         </li>
       </ul>
@@ -47,13 +47,14 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
     </div>
   </div>
  
+ 
 </div>
 
     </div>
     </div>
   
 
-
+//.slice(0,22)
   
   )
 }
@@ -62,7 +63,7 @@ export default MinaPass
 
 export const getServerSideProps: GetServerSideProps<any> = async () => {
   await connectToDatabase()
-  const workouts = await WorkoutModel.find().lean().exec()
+  const workouts = await MyWorkoutModel.find().lean().exec()
 
   const serializedWorkouts = workouts.map((workout) => {
     return {
