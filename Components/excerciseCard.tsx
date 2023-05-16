@@ -58,7 +58,11 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
                 id="muskelgrupp"
                 className="py-2 w-24 h-4 not-italic font-normal text-xs leading-4"
               >
-                {`${element.muscleGroup}`}
+                <div className='flex border border-gray-500' style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
+  <div className='flex px-1'>
+{`${element.muscleGroup}`}</div>
+</div>
+
               </div>
             </div>
             <div id="container plus" className="flex my-4 ml-1 mr-2">
