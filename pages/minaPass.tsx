@@ -24,15 +24,13 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
     backgroundImage:
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}>
-  <div className='flex flex-col h-screen my-auto mt-60 ml-9'>
-  <h1 className='text-lg'>Mina Pass</h1>
+  <div className='flex flex-col h-screen my-auto mt-60 ml-9 mr-9'>
   <div className="">
     {workouts.map((workout) => (
       <ul key={workout._id}  > 
         <li className='flex justify-between py-2'>  
-      {/*   <RenderWorkoutPage workout={`${workout.name} ${workout.sets} ${workout.reps} ${workout.weight} ${workout.exercise} ${workout.musclegroup}`} /> */}
-      <Link href={`/renderWorkout?name=${workout.name}&sets=${workout.sets}&reps=${workout.reps}&exercise=${workout.exercise}`}> 
-        <Button text={[workout.name, " >"]}  onClick={handleClick}></Button>
+        <Link href={`/renderWorkout?name=${workout.name}&sets=${workout.sets}&reps=${workout.reps}&exercise=${workout.exercise}`}> 
+        <button className=" text-[color:black] text-xl bg-ourcolor-white py-5 px-8 rounded-lg w-80 ">{`${workout.name} >`}</button>
         </Link> 
         </li>
       </ul>
