@@ -5,13 +5,14 @@ import { connectToDatabase } from '@/utils/db'
 import { WorkoutModel } from '@/schemas/workoutSchema'
 import Button from '@/Components/button'
 import Link from 'next/link'
+import { MouseEvent } from 'react'
 
 
 type Props = {
     workouts: Workout []
 }
 
-const handleClick = ()=> {
+const onClick = ()=> {
 
   
 }
@@ -25,7 +26,7 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
       "url('https://4599529af2.cbaul-cdnwnd.com/801f178300d1552abc2bf838876c8a02/200000001-58c0f58c11/liftstart.webp?ph=4599529af2')",
    maxWidth:700}}>
   <div className='flex flex-col h-screen my-auto mt-60 ml-9 mr-9'>
-  <div className="">
+  
     {workouts.map((workout) => (
       <ul key={workout._id}  > 
         <li className='flex justify-between py-2'>  
@@ -35,9 +36,12 @@ const MinaPass: NextPage<Props> = ({workouts}) => {
         </li>
       </ul>
     ))}
+    <div className='fixed bottom-12 m-4'>
+    <Link href="/exercises">
+      <Button text={"Skapa nytt pass"} onClick={onClick}></Button>
+    </Link>
+    </div>
   </div>
- 
-</div>
 
     </div>
     </div>

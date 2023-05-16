@@ -4,11 +4,16 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import Button from '@/Components/button'
 import TopNav from '@/Components/topNav'
+import router from 'next/router'
 
 interface Props {}
 
 
 const Set_reps: NextPage<Props> = ({}) => {
+
+  const selectedExercise = router.query.selectedExercise && typeof router.query.selectedExercise === 'string' ? router.query.selectedExercise : "";
+   const exercises = JSON.parse(selectedExercise)
+   console.log("Den parsade selectedExercise, hämtad med url som heter exercises: ", exercises)
 
   const [selectedWorkout, setSelectedWorkout] = useState <string[]>([]);
   const workoutContext = useContext(MyContext)
@@ -85,26 +90,25 @@ console.log(" Hallå?")
       required placeholder='Namnge ditt pass här...' 
       className=' flex w-50 h-7 text-center m-4'   ></input>
       </form> 
+
+      {exercises.map((index: { nr: number, exercise: string, muscleGroup: string, sets: number, reps: number }) =>(
+      <div key={index.nr}>
       <div className='flex m-4 py-0'>
-    <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
+        <div id='card' className='flex justify-between px-4 pb-8 h-20 bg-white uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)]   w-[342px] left-[20px] top-[20px]'>
         <div className=' py-3' id='container'>
 
-            <div id='övning'className='  flex'>{`${exercise}`}</div>
-            <div className='flex border border-gray-500' style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
-            <div id='muskelgrupp' className=' flex px-1  h-4 text-xs'>{`${musclegroup}`}</div>
-            </div>
-
-
+            <div id='övning'className='  flex'>{`${index.exercise}`}</div>
+            <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${index.muscleGroup}`}</div>
+            
         </div>
-
         <div className=''>
         <form id='inputs' className='flex justify-center py-3'>
-        <input type="text" value={sets} 
+        <input type="text" value={index.sets} 
       onChange={(e) => setSets(parseInt(e.target.value))}   
-       name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-md  box-border border-2 shadow-lg text-center'></input>
+       name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
-            <input type='text' value={reps} 
-      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-md box-border border-2 shadow-lg text-center'></input>
+            <input type='text' value={index.reps} 
+      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
             <div id='sets' className='  ml-2 mr-2 not-italic font-normal text-xs '>Sets</div>
@@ -113,6 +117,9 @@ console.log(" Hallå?")
         </div>
         </div>
         </div>
+        </div>
+        )
+        )}
     </div>
     <Link href="/minaPass">
   <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">

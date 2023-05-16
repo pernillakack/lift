@@ -1,256 +1,256 @@
 export function chosenExercise() {
 
-    return [
-        {
-          id: 0,
-          
-          "exercise": "Overhead dumbell press",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 1,
-          "exercise": "Overhead barbell press",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 2,
-          "exercise": "Face pull",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 4,
-          "exercise": "Dumbell rear delt row",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 5,
-          "exercise": "Lateral dumbell raises",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 6,
-          "exercise": "Shrugs",
-          "muscleGroup": "Axlar"
-        },
-        {
-          id: 7,
-          "exercise": "Dead lift",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 8,
-          "exercise": "Leg curl",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 9,
-          "exercise": "Leg press",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 10,
-          "exercise": "Leg extension",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 11,
-          "exercise": "Bulgarian split squat",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 12,
-          "exercise": "Front squat",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 13,
-          "exercise": "Good mornings",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 14,
-          "exercise": "Squats",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 15,
-          "exercise": "Romanian deadlift",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 16,
-          "exercise": "Sitting calf press",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 17,
-          "exercise": "Standing calf press",
-          "muscleGroup": "Ben"
-        },
-        {
-          id: 18,
-          "exercise": "Curl dumbbell",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 19,
-          "exercise": "Curl barbell",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 20,
-          "exercise": "Cable curl",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 21,
-          "exercise": "Preachercurl dumbell",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 22,
-          "exercise": "Preachercurl barbell",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 23,
-          "exercise": "Hammercurl",
-          "muscleGroup": "Biceps"
-        },
-        {
-          id: 24,
-          "exercise": "Dips on bench",
-          "muscleGroup": "Triceps"
-        },
-        {
-          id: 25,
-          "exercise": "French press dumbell",
-          "muscleGroup": "Triceps"
-        },
-        {
-          id: 26,
-          "exercise": "Skullcrushers ez-bar",
-          "muscleGroup": "Triceps"
-        },
-        {
-          id: 27,
-          "exercise": "Rope pushdown",
-          "muscleGroup": "Triceps"
-        },
-        {
-          id: 28,
-          "exercise": "Pushups",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 29,
-          "exercise": "Cable fly",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 30,
-          "exercise": "Benchpress",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 31,
-          "exercise": "Dips",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 32,
-          "exercise": "Dumbbell fly",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 33,
-          "exercise": "Dumbbell press",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 34,
-          "exercise": "Fly in machine",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 35,
-          "exercise": "Incline benchpress",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 36,
-          "exercise": "Incline dumbbell press",
-          "muscleGroup": "Bröst"
-        },
-        {
-          id: 37,
-          "exercise": "Mountain climbers",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 38,
-          "exercise": "Crunch",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 39,
-          "exercise": "V-sit",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 40,
-          "exercise": "Hanging L-sit",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 41,
-          "exercise": "Hanging leg raises",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 42,
-          "exercise": "Laying leg raises",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 43,
-          "exercise": "Plank",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 44,
-          "exercise": "Side plank",
-          "muscleGroup": "Mage"
-        },
-        {
-          id: 45,
-          "exercise": "Pullups",
-          "muscleGroup": "Rygg"
-        },
-        {
-          id: 46,
-          "exercise": "Lat pulldown",
-          "muscleGroup": "Rygg"
-        },
-        {
-          id: 47,
-          "exercise": "Dumbbell row",
-          "muscleGroup": "Rygg"
-        },
-        {
-          id: 48,
-          "exercise": "Barbell row",
-          "muscleGroup": "Rygg"
-        },
-        {
-          id: 49,
-          "exercise": "Deadlift",
-          "muscleGroup": "Rygg"
-        },
-        {
-          id: 50,
-          "exercise": "Row in machine",
-          "muscleGroup": "Rygg"
-        }
-      ]
+  return [
+    {
+      nr: 0,
+      
+      "exercise": "Overhead dumbell press",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 1,
+      "exercise": "Overhead barbell press",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 2,
+      "exercise": "Face pull",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 4,
+      "exercise": "Dumbell rear delt row",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 5,
+      "exercise": "Lateral dumbell raises",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 6,
+      "exercise": "Shrugs",
+      "muscleGroup": "Axlar"
+    },
+    {
+      nr: 7,
+      "exercise": "Dead lift",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 8,
+      "exercise": "Leg curl",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 9,
+      "exercise": "Leg press",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 10,
+      "exercise": "Leg extension",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 11,
+      "exercise": "Bulgarian split squat",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 12,
+      "exercise": "Front squat",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 13,
+      "exercise": "Good mornings",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 14,
+      "exercise": "Squats",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 15,
+      "exercise": "Romanian deadlift",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 16,
+      "exercise": "Sitting calf press",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 17,
+      "exercise": "Standing calf press",
+      "muscleGroup": "Ben"
+    },
+    {
+      nr: 18,
+      "exercise": "Curl dumbbell",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 19,
+      "exercise": "Curl barbell",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 20,
+      "exercise": "Cable curl",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 21,
+      "exercise": "Preachercurl dumbell",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 22,
+      "exercise": "Preachercurl barbell",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 23,
+      "exercise": "Hammercurl",
+      "muscleGroup": "Biceps"
+    },
+    {
+      nr: 24,
+      "exercise": "Dips on bench",
+      "muscleGroup": "Triceps"
+    },
+    {
+      nr: 25,
+      "exercise": "French press dumbell",
+      "muscleGroup": "Triceps"
+    },
+    {
+      nr: 26,
+      "exercise": "Skullcrushers ez-bar",
+      "muscleGroup": "Triceps"
+    },
+    {
+      nr: 27,
+      "exercise": "Rope pushdown",
+      "muscleGroup": "Triceps"
+    },
+    {
+      nr: 28,
+      "exercise": "Pushups",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 29,
+      "exercise": "Cable fly",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 30,
+      "exercise": "Benchpress",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 31,
+      "exercise": "Dips",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 32,
+      "exercise": "Dumbbell fly",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 33,
+      "exercise": "Dumbbell press",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 34,
+      "exercise": "Fly in machine",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 35,
+      "exercise": "Incline benchpress",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 36,
+      "exercise": "Incline dumbbell press",
+      "muscleGroup": "Bröst"
+    },
+    {
+      nr: 37,
+      "exercise": "Mountain climbers",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 38,
+      "exercise": "Crunch",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 39,
+      "exercise": "V-sit",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 40,
+      "exercise": "Hanging L-sit",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 41,
+      "exercise": "Hanging leg raises",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 42,
+      "exercise": "Laying leg raises",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 43,
+      "exercise": "Plank",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 44,
+      "exercise": "Side plank",
+      "muscleGroup": "Mage"
+    },
+    {
+      nr: 45,
+      "exercise": "Pullups",
+      "muscleGroup": "Rygg"
+    },
+    {
+      nr: 46,
+      "exercise": "Lat pulldown",
+      "muscleGroup": "Rygg"
+    },
+    {
+      nr: 47,
+      "exercise": "Dumbbell row",
+      "muscleGroup": "Rygg"
+    },
+    {
+      nr: 48,
+      "exercise": "Barbell row",
+      "muscleGroup": "Rygg"
+    },
+    {
+      nr: 49,
+      "exercise": "Deadlift",
+      "muscleGroup": "Rygg"
+    },
+    {
+      nr: 50,
+      "exercise": "Row in machine",
+      "muscleGroup": "Rygg"
+    }
+  ]
 }

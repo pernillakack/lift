@@ -26,14 +26,14 @@ const Excercises: NextPage<Props> = ({}) => {
         <ExerciseCard onSelectExercise={handleSelectExercise} />
       </div>
 
-      <div
+     {/* <div
         className="uxBackground justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0"
         style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
       >
         <Link href='/set_reps'>
           <Button text={'Gå vidare >'} onClick={handleChange} />
         </Link>
-      </div>
+  </div> */}
     </div>
   );
 };
