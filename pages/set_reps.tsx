@@ -98,17 +98,19 @@ console.log(" Hallå?")
         <div className=' py-3' id='container'>
 
             <div id='övning'className='  flex'>{`${index.exercise}`}</div>
-            <div id='muskelgrupp' className=' py-2 w-24 h-4 text-xs'>{`${index.muscleGroup}`}</div>
+            <div className='flex border border-gray-500' style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div id='muskelgrupp' className=' flex px-1  h-4 text-xs'>{`${index.muscleGroup}`}</div>
+            </div>
             
         </div>
         <div className=''>
         <form id='inputs' className='flex justify-center py-3'>
         <input type="text" value={index.sets} 
       onChange={(e) => setSets(parseInt(e.target.value))}   
-       name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
+       name='message' required placeholder='0' className=' mb-1  ml-2 mr-2 w-8 rounded-md box-border border-2 shadow-lg text-center'></input>
             <div className=' text-center not-italic '> x </div>
             <input type='text' value={index.reps} 
-      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-full box-border border-2 shadow-lg text-center'></input>
+      onChange={(e) => setReps(parseInt(e.target.value))}  name='message' required placeholder='0' className='  mb-1 ml-2 mr-2 w-8 rounded-md box-border border-2 shadow-lg text-center'></input>
         </form>
         <div className=' flex'>
             <div id='sets' className='  ml-2 mr-2 not-italic font-normal text-xs '>Sets</div>

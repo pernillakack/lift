@@ -97,7 +97,10 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
                 id="muskelgrupp"
                 className="py-2 w-24 h-4 not-italic font-normal text-xs leading-4"
               >
-                {`${element.muscleGroup}`}
+               <div className='flex border border-gray-500' style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center' }}>
+  <div className='flex px-1'>
+{`${element.muscleGroup}`}</div>
+</div>
               </div>
             </div>
             <div id="container plus" className="flex my-4 ml-1 mr-2">
@@ -139,7 +142,7 @@ const ExerciseCard: React.FC<Props> = ({ onSelectExercise }) => {
         <ul className=' mt-20'>{listExercises}</ul>
       </div>
       <div
-        className="uxBackground justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0"
+        className="uxBackground fixed justify-center w-screen bottom-0 h-65 flex space-x-10 mx-0"
         style={{ paddingTop: '3rem', paddingBottom: '3rem' }}
       >
         <Link href={`/set_reps?selectedExercise=${JSON.stringify(selectedExercise)}`}>
