@@ -28,8 +28,8 @@ const RenderWorkout: NextPage<Props> = ({}) => {
         </div>
       </form>
 
-      <ul>
-        <form className='uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]'>
+      <ul className=''>
+        <form className=' ml-4 uxShadow rounded-lg shadow-[4px 5px 15px rgba(0,0,0,0.07)] w-[342px] left-[20px] top-[20px]'>
           <div className='py-6 flex justify-center'>
             <h2 className=" uxColor font-bold text-xl" >{`${exercise}`}</h2>
           </div>
